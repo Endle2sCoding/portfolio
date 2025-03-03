@@ -1,3 +1,4 @@
+import { theme } from "@/styles/Theme";
 import { ReactNode } from "react";
 import styled from "styled-components";
 
@@ -14,6 +15,9 @@ const StyledContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  @media (max-width: ${theme.media.desctop}) {
+    padding: 0 15px;
+  }
 
-  /* border: 1px solid red; */
+  border: 1px solid red;
 `;

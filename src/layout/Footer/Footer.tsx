@@ -2,7 +2,7 @@ import { AppLink } from "@/components/AppLink/AppLink";
 import { Container } from "@/components/Container/Container";
 import { FlexWrapper } from "@/components/FlexWrapper/FlexWrapper";
 import { Icon } from "@/components/Icon/Icon";
-import { theme } from "@/styles/Theme";
+
 import styled from "styled-components";
 const listIcon = ["instagram", "telegram", "vk", "linkedin"];
 
@@ -46,20 +46,8 @@ const StyledFooter = styled.footer`
 `;
 const Name = styled.span``;
 const Item = styled.li`
-  background: ${theme.colors.bgSecondary};
   padding: 10px;
   margin: 0 10px;
-  border-radius: 50%;
-  transition: all linear ${theme.delay.transitionDelay};
-  &:hover {
-    transform: translateY(-4px);
-    background: ${theme.colors.accentedColor};
-    a {
-      svg {
-        fill: ${theme.colors.bgPrimary};
-      }
-    }
-  }
 `;
 const Copyright = styled.p`
   color: rgba(255, 255, 255, 0.5);

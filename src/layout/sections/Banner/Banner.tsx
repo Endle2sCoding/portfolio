@@ -32,7 +32,39 @@ export const Banner = () => {
   );
 };
 
-const StyledBanner = styled.section``;
+const StyledBanner = styled.section`
+  @media (max-width: ${theme.media.tablet}) {
+    div {
+      flex-direction: column;
+    }
+  }
+`;
+
+const PhotoWrapper = styled.div`
+  width: 350px;
+  height: 430px;
+  position: relative;
+  z-index: 0;
+  transform: translateX(-24px);
+  &:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: 350px;
+    height: 470px;
+    left: 24px;
+    top: -20px;
+    border: 5px solid ${theme.colors.accentedColor};
+  }
+  @media (max-width: ${theme.media.laptop}) {
+    width: 300px;
+    height: 380px;
+    &:after {
+      width: 300px;
+      height: 420px;
+    }
+  }
+`;
 const Photo = styled.img`
   width: 350px;
   height: 430px;
@@ -43,21 +75,9 @@ const Photo = styled.img`
   right: 0;
   bottom: 0;
   z-index: 1;
-`;
-const PhotoWrapper = styled.div`
-  width: 350px;
-  height: 430px;
-  position: relative;
-  z-index: 0;
-  &:after {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    width: 384px;
-    height: 470px;
-    border: 5px solid ${theme.colors.accentedColor};
-    left: 24px;
-    top: -24px;
+  @media (max-width: ${theme.media.laptop}) {
+    width: 300px;
+    height: 380px;
   }
 `;
 const SupTitle = styled.h4`

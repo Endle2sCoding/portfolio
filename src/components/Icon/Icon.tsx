@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import iconsSprite from "../../assets/svg/iconsSprite.svg";
 
 import { SVGProps } from "react";
@@ -23,21 +23,58 @@ export const Icon = (props: IconPropsType) => {
     ...otherProps
   } = props;
   return (
-    <SvgStyled
-      {...otherProps}
-      width={width}
-      height={height}
-      viewBox={viewBox}
-      $fill={fill}
-      $variant={variant}
-    >
-      <use xlinkHref={`${iconsSprite}#${iconId}`} />
-    </SvgStyled>
+    <SvgWrapper $variant={variant}>
+      <SvgStyled
+        {...otherProps}
+        width={width}
+        height={height}
+        viewBox={viewBox}
+        $fill={fill}
+      >
+        <use xlinkHref={`${iconsSprite}#${iconId}`} />
+      </SvgStyled>
+    </SvgWrapper>
   );
 };
+const SvgWrapper = styled.div<{
+  $variant?: "clear" | "bgCircle" | "bgSquare";
+}>`
+  ${(props) => {
+    switch (props.$variant) {
+      case "bgCircle":
+        return css`
+          position: relative;
+          &:before {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            content: "";
+            background: ${theme.colors.bgSecondary};
+            padding: 10px;
+            margin: 0 10px;
+            border-radius: 50%;
+            transition: all linear ${theme.delay.transitionDelay};
+            &:hover {
+              transform: translateY(-4px);
+              background: ${theme.colors.accentedColor};
+              svg {
+                fill: ${theme.colors.bgPrimary};
+              }
+            }
+          }
+        `;
+      case "bgSquare":
+        return css``;
+
+      default:
+        return css``;
+    }
+  }}
+`;
 const SvgStyled = styled.svg<{
   $fill: "primary" | "secondary" | "accented";
-  $variant?: "clear" | "bgCircle" | "bgSquare";
 }>`
   fill: ${(props) =>
     props.$fill === "accented"
