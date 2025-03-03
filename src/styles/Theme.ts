@@ -1,4 +1,7 @@
 export const theme = {
+  media: {
+    "767px": "max-width:767px"
+  },
   delay: {
     transitionDelay: "0.3s",
   },
@@ -6,17 +9,21 @@ export const theme = {
     headerHeight: "100px",
   },
   fonts: {
-    fontSizeXs: "12px",
-    fontSizeS: "14px",
-    fontSizeM: "16px",
-    fontSizeL: "22px",
-    fontSizeXl: "27px",
-    fontSize2xl: "36px",
-    fontSize3xl: "50px",
     popinsMedium: "Poppins-Medium",
     josefinsansMedium: "JosefinSans-Medium",
     josefinsansBold: "JosefinSans-Bold",
     josefinsansSemibold: "JosefinSans-SemiBold",
+    fontSizeXs: "12px",
+    fontSizeS: "14px",
+    fontSizeM: "16px",
+    fontSizeL: "20px",
+    fontSizeXl: "24px",
+    fontSize2xl: "28px",
+    fontSize3xl: "32px",
+    fontSize4xl: "36px",
+    fontSize5xl: "40px",
+    fontSize6xl: "48px",
+
   },
   colors: {
     bgPrimary: "rgb(31, 31, 32)",
@@ -24,5 +31,6 @@ export const theme = {
     primaryColor: "#fff",
     secondaryColor: "#eee",
     accentedColor: "#579191",
+    bgGradient: `linear-gradient(to right, #579191, gray);`
   }
 };

@@ -1,3 +1,4 @@
+import { theme } from "@/styles/Theme";
 import styled from "styled-components";
 
 export const Title = ({ children }: { children: string }) => {
@@ -7,4 +8,5 @@ export const Title = ({ children }: { children: string }) => {
 const StyledTitle = styled.h2`
   text-align: center;
   margin-bottom: 80px;
+  font-size: ${theme.fonts.fontSize4xl};
 `;

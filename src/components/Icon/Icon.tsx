@@ -10,6 +10,7 @@ export type IconPropsType = SVGProps<SVGSVGElement> & {
   height?: string;
   viewBox?: string;
   fill?: "primary" | "secondary" | "accented";
+  variant?: "clear" | "bgCircle" | "bgSquare";
 };
 export const Icon = (props: IconPropsType) => {
   const {
@@ -18,6 +19,7 @@ export const Icon = (props: IconPropsType) => {
     height = "50",
     viewBox = "0 0 50 50",
     fill = "accented",
+    variant = "clear",
     ...otherProps
   } = props;
   return (
@@ -26,17 +28,21 @@ export const Icon = (props: IconPropsType) => {
       width={width}
       height={height}
       viewBox={viewBox}
-      fill={fill}
+      $fill={fill}
+      $variant={variant}
     >
       <use xlinkHref={`${iconsSprite}#${iconId}`} />
     </SvgStyled>
   );
 };
-const SvgStyled = styled.svg<{ fill: "primary" | "secondary" | "accented" }>`
+const SvgStyled = styled.svg<{
+  $fill: "primary" | "secondary" | "accented";
+  $variant?: "clear" | "bgCircle" | "bgSquare";
+}>`
   fill: ${(props) =>
-    props.fill === "accented"
+    props.$fill === "accented"
       ? `${theme.colors.accentedColor}`
-      : props.fill === "primary"
+      : props.$fill === "primary"
       ? `${theme.colors.primaryColor}`
       : `${theme.colors.secondaryColor}`};
 `;

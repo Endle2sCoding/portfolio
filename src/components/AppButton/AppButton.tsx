@@ -1,3 +1,4 @@
+import { theme } from "@/styles/Theme";
 import { ButtonHTMLAttributes, ReactNode } from "react";
 import styled, { css } from "styled-components";
 
@@ -15,46 +16,40 @@ export const AppButton = ({
   return (
     <StyledAppButton
       {...otherProps}
-      variant={variant}
+      $variant={variant}
     >
       {children}
     </StyledAppButton>
   );
 };
-const StyledAppButton = styled.button<{ variant: AppButtonVariant }>`
+const StyledAppButton = styled.button<{ $variant: AppButtonVariant }>`
   cursor: pointer;
   text-transform: uppercase;
-  color: var(--primary-color)
-    ${(props) => {
-      switch (props.variant) {
-        case "filed":
-          return css`
-            font-family: Poppins;
-            font-size: 14px;
-            font-weight: 400;
-            line-height: 21px;
-            letter-spacing: 1px;
-            text-align: left;
-
-            background: var(--accented-color);
-            padding: 10px 30px;
-            border: 1px solid var(--accented-color);
-            transition: background linear var(--transition-delay);
-            &:hover {
-              background: var(--bg-secondary);
-            }
-          `;
-        default:
-          return css`
-            padding: 0;
-            margin: 0 auto;
-            background: none;
-            border: none;
-            transition: color linear var(--transition-delay);
-            &:hover {
-              color: var(--accented-color);
-            }
-          `;
-      }
-    }};
+  color: ${theme.colors.primaryColor};
+  ${(props) => {
+    switch (props.$variant) {
+      case "filed":
+        return css`
+          background: ${theme.colors.accentedColor};
+          padding: 10px 30px;
+          border: 1px solid ${theme.colors.accentedColor};
+          transition: background linear ${theme.delay.transitionDelay};
+          &:hover {
+            background: ${theme.colors.bgSecondary};
+            color: ${theme.colors.accentedColor};
+          }
+        `;
+      default:
+        return css`
+          padding: 0;
+          margin: 0 auto;
+          background: none;
+          border: none;
+          transition: color linear ${theme.delay.transitionDelay};
+          &:hover {
+            color: ${theme.colors.accentedColor};
+          }
+        `;
+    }
+  }};
 `;

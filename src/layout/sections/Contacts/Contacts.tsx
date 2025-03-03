@@ -3,6 +3,7 @@ import { Container } from "@/components/Container/Container";
 import { FlexWrapper } from "@/components/FlexWrapper/FlexWrapper";
 import { Title } from "@/components/Title/Title";
 import { CONTACTS_ID } from "@/layout/Header/Header";
+import { theme } from "@/styles/Theme";
 import styled from "styled-components";
 
 export const Contacts = () => {
@@ -53,13 +54,9 @@ const Field = styled.input`
   display: block;
   width: 100%;
   padding: 7px 15px;
-  background: var(--bg-primary);
+  background: ${theme.colors.bgPrimary};
 
   color: rgb(73, 80, 87);
-  font-family: Poppins;
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 18px;
   letter-spacing: 5%;
 
   box-sizing: border-box;

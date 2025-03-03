@@ -9,32 +9,26 @@ const skills: SkillsItemType[] = [
   {
     iconId: "code",
     title: "html5",
-    text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim",
   },
   {
     iconId: "css",
     title: "css3",
-    text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim",
   },
   {
     iconId: "react",
     title: "REACT",
-    text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim",
   },
   {
     iconId: "typescript",
     title: "typescript",
-    text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim",
   },
   {
     iconId: "styled",
     title: "styled components",
-    text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim",
   },
   {
     iconId: "figma",
     title: "WEB DESIgN  ",
-    text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim",
   },
 ];
 
@@ -51,6 +45,7 @@ export const Skills = () => {
           <FlexWrapper
             wrap="wrap"
             align="center"
+            justify="space-between"
           >
             {skills.map((s, i) => (
               <SkillsItem
@@ -67,6 +62,4 @@ export const Skills = () => {
   );
 };
 
-const StyledSection = styled.section`
-  min-height: 600px;
-`;
+const StyledSection = styled.section``;

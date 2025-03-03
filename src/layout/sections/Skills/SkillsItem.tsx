@@ -13,18 +13,21 @@ export const SkillsItem = ({ iconId, title, text }: SkillsItemType) => {
         iconId={iconId}
         className="icon"
       />
-      <h3>{title.toUpperCase()}</h3>
+      <h5>{title}</h5>
       <span>{text}</span>
     </Skill>
   );
 };
 const Skill = styled.div`
-  width: calc(100% / 3);
-  padding: 30px 20px 40px;
+  width: calc(100% / 6);
+  padding: 0 0 40px;
   .icon {
     margin-bottom: 40px;
   }
   h3 {
     padding-bottom: 20px;
+  }
+  @media (max-width: 767px) {
+    width: calc(100% / 3);
   }
 `;

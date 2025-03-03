@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Icon } from "../Icon/Icon";
 import { HOME_ID } from "@/layout/Header/Header";
+import { theme } from "@/styles/Theme";
 
 export const Logo = () => {
   return (
@@ -11,4 +12,8 @@ export const Logo = () => {
 };
 const StyledLogo = styled.a`
   text-decoration: none;
+  transition: transform linear ${theme.delay.transitionDelay};
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
