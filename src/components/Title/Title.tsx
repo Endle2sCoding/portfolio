@@ -9,4 +9,19 @@ const StyledTitle = styled.h2`
   text-align: center;
   margin-bottom: 80px;
   font-size: ${theme.fonts.fontSize4xl};
+
+  position: relative;
+  padding: 30px;
+
+  &:before {
+    content: "";
+    width: 60px;
+    height: 2px;
+    background: ${theme.colors.accentedColor};
+
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 `;

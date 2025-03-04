@@ -3,9 +3,9 @@ export const theme = {
     "desctop": "1200px",
     "laptop": "961px",
     "tablet": "max-width:767px",
-    "portraitTablets": "max-width:640px",
-    "eReaders": "max-width:480px",
-    "smartphones": "max-width:400px",
+    "portraitTablets": "640px",
+    "eReaders": "480px",
+    "smartphones": ":400px",
   },
   delay: {
     transitionDelay: "0.3s",
@@ -36,6 +36,7 @@ export const theme = {
     primaryColor: "#fff",
     secondaryColor: "#eee",
     accentedColor: "#579191",
+    notAccentedColor: "#ffffff19",
     bgGradient: `linear-gradient(to right, #579191, gray);`
   }
 };

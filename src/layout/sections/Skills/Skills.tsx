@@ -45,14 +45,12 @@ export const Skills = () => {
           <FlexWrapper
             wrap="wrap"
             align="center"
-            justify="space-between"
           >
             {skills.map((s, i) => (
               <SkillsItem
                 key={s.iconId + i}
                 iconId={s.iconId}
                 title={s.title}
-                text={s.text}
               />
             ))}
           </FlexWrapper>

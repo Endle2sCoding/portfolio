@@ -19,7 +19,13 @@ export default function Header() {
           justify="space-between"
         >
           <Logo />
-          <Nav list={menu} />
+          <Nav
+            list={menu}
+            className="nav"
+          />
+          <Burger>
+            <span></span>
+          </Burger>
         </FlexWrapper>
       </Container>
     </StyledHeader>
@@ -34,6 +40,40 @@ const StyledHeader = styled.header`
   background: ${theme.colors.bgPrimary};
   opacity: 0.98;
   z-index: 1000;
-  width: 100%;
   height: ${theme.sizes.headerHeight};
+  @media (max-width: ${theme.media.portraitTablets}) {
+    .nav {
+      display: none;
+    }
+  }
+`;
+const Burger = styled.span`
+  @media (min-width: ${theme.media.portraitTablets}) {
+    display: none;
+  }
+  span {
+    position: relative;
+    display: block;
+    width: 30px;
+    height: 4px;
+    background: ${theme.colors.primaryColor};
+    &::before {
+      position: absolute;
+      top: -10px;
+      content: "";
+      display: block;
+      width: 30px;
+      height: 4px;
+      background: ${theme.colors.primaryColor};
+    }
+    &::after {
+      position: absolute;
+      top: 10px;
+      content: "";
+      display: block;
+      width: 30px;
+      height: 4px;
+      background: ${theme.colors.primaryColor};
+    }
+  }
 `;

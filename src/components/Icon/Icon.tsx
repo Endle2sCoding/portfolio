@@ -9,6 +9,7 @@ export type IconPropsType = SVGProps<SVGSVGElement> & {
   width?: string;
   height?: string;
   viewBox?: string;
+  className?: string;
   fill?: "primary" | "secondary" | "accented";
   variant?: "clear" | "bgCircle" | "bgSquare";
 };
@@ -20,10 +21,14 @@ export const Icon = (props: IconPropsType) => {
     viewBox = "0 0 50 50",
     fill = "accented",
     variant = "clear",
+    className,
     ...otherProps
   } = props;
   return (
-    <SvgWrapper $variant={variant}>
+    <SvgWrapper
+      className={className}
+      $variant={variant}
+    >
       <SvgStyled
         {...otherProps}
         width={width}
@@ -66,7 +71,29 @@ const SvgWrapper = styled.div<{
           }
         `;
       case "bgSquare":
-        return css``;
+        return css`
+          position: relative;
+          z-index: 0;
+          &:before {
+            position: absolute;
+            z-index: -1;
+            width: 80px;
+            height: 80px;
+            transform-origin: top left;
+            top: 50%;
+            left: 50%;
+            transform: rotate(45deg) translate3d(-50%, -50%, 0);
+            content: "";
+            background: ${theme.colors.notAccentedColor};
+            &:hover {
+              transform: translateY(-4px);
+              background: ${theme.colors.accentedColor};
+              svg {
+                fill: ${theme.colors.bgPrimary};
+              }
+            }
+          }
+        `;
 
       default:
         return css``;

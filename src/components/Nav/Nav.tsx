@@ -1,9 +1,15 @@
 import { theme } from "@/styles/Theme";
 import styled from "styled-components";
 
-export const Nav = ({ list }: { list: string[] }) => {
+export const Nav = ({
+  list,
+  className,
+}: {
+  list: string[];
+  className?: string;
+}) => {
   return (
-    <StyledNav>
+    <StyledNav className={className}>
       <ul>
         {list.map((l, i) => (
           <Item key={l + i}>

@@ -66,7 +66,7 @@ ul{
   list-style: none;
 }
 section {
-  padding: ${theme.sizes.headerHeight} 0;
+  padding: calc(${theme.sizes.headerHeight} / 2) 0 ;
 
 }
 section:nth-of-type(odd){
