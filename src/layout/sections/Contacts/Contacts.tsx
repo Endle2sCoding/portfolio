@@ -28,7 +28,6 @@ export const Contacts = () => {
               placeholder="Message"
               as={"textarea"}
               name=""
-              id="textarea"
             ></Field>
             <AppButton
               type="submit"
@@ -47,23 +46,28 @@ const StyledContacts = styled.section``;
 const StyledForm = styled.form`
   max-width: 540px;
   width: 100%;
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
 `;
 
 const Field = styled.input`
-  display: block;
   width: 100%;
   padding: 7px 15px;
-  background: ${theme.colors.bgPrimary};
-
-  color: rgb(73, 80, 87);
-  letter-spacing: 5%;
-
   box-sizing: border-box;
   border: 1px solid rgb(74, 74, 74);
-  margin-bottom: 16px;
-  resize: none;
-  &#textarea {
+  background: ${theme.colors.bgSecondary};
+  color: ${theme.colors.primaryColor};
+  outline: none;
+  overflow-y: auto;
+  word-break: break-all;
+  font-family: inherit;
+  & + textarea {
+    resize: none;
     min-height: 155px;
+  }
+  &:focus-visible {
+    outline: 1px solid ${theme.colors.accentedColorOpacity};
   }
 `;

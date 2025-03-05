@@ -25,9 +25,9 @@ const Skill = styled.div`
   align-items: center;
   text-transform: uppercase;
   text-align: center;
-  margin-bottom: 80px;
+  margin-bottom: 40px;
   span {
-    margin-top: 50px;
+    margin-top: 30px;
     font-family: ${theme.fonts.josefinsansBold};
   }
   @media (max-width: ${theme.media.laptop}) {
@@ -36,10 +36,6 @@ const Skill = styled.div`
 
   @media (max-width: ${theme.media.portraitTablets}) {
     .icon {
-      svg {
-        width: 30px;
-        height: 30px;
-      }
       &:before {
         position: absolute;
         width: 50px;

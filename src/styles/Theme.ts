@@ -36,6 +36,7 @@ export const theme = {
     primaryColor: "#fff",
     secondaryColor: "#eee",
     accentedColor: "#579191",
+    accentedColorOpacity: "#57919170",
     notAccentedColor: "#ffffff19",
     bgGradient: `linear-gradient(to right, #579191, gray);`
   }

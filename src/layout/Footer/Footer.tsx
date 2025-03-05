@@ -4,7 +4,9 @@ import { FlexWrapper } from "@/components/FlexWrapper/FlexWrapper";
 import { Icon } from "@/components/Icon/Icon";
 
 import styled from "styled-components";
-const listIcon = ["instagram", "telegram", "vk", "linkedin"];
+const listIcon = [
+  // "instagram", 
+  "telegram", "vk", "linkedin"];
 
 export const Footer = () => {
   return (
@@ -20,6 +22,7 @@ export const Footer = () => {
               <Item key={item + i}>
                 <AppLink to="/">
                   <Icon
+                    variant="bgCircle"
                     width="21"
                     height="21"
                     viewBox="0 0 21 21"
@@ -42,12 +45,11 @@ const StyledFooter = styled.footer`
   ul {
     display: flex;
     padding: 30px 0;
+    gap:20px
   }
 `;
 const Name = styled.span``;
 const Item = styled.li`
-  padding: 10px;
-  margin: 0 10px;
 `;
 const Copyright = styled.p`
   color: rgba(255, 255, 255, 0.5);

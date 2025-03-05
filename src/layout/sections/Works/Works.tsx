@@ -6,13 +6,15 @@ import workImg from "@/assets/img/Rectangle 14.png";
 import { FlexWrapper } from "@/components/FlexWrapper/FlexWrapper";
 import { Container } from "@/components/Container/Container";
 import { WORKS_ID } from "@/layout/Header/Header";
-import { theme } from "@/styles/Theme";
+import { AppButton } from "@/components/AppButton/AppButton";
+
+const variants = ["all", "lanfing", "react", "spa"];
 
 const works: WorkType[] = [
   {
     img: workImg,
     title: "Social Network",
-    text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim. Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+    text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim. Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim. Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
     demo: "",
     code: "",
   },
@@ -34,32 +36,50 @@ export const Works = () => {
           justify="space-between"
         >
           <Title>Works</Title>
-          <WorksItem w={works[0]} />
-          {/* {works.map((w, i) => (
+          <Btns>
+            {variants.map((v, i) => (
+              <li key={v + i}>
+                <AppButton variant="underlined">{v}</AppButton>
+              </li>
+            ))}
+          </Btns>
+          <FlexWrapper
+            justify="space-between"
+            wrap="wrap"
+            align="flex-start"
+          >
+            {works.map((w, i) => (
               <WorksItem
                 key={w.title + i}
                 w={w}
               />
-            ))} */}
-          <Pagination>
+            ))}
+          </FlexWrapper>
+          {/* <Pagination>
             <span></span>
             <span></span>
             <span></span>
-          </Pagination>
+          </Pagination> */}
         </FlexWrapper>
       </Container>
     </WorksStyled>
   );
 };
 const WorksStyled = styled.section``;
-const Pagination = styled.div`
-  span {
-    content: "";
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    margin: 5px;
-    background: ${theme.colors.primaryColor};
-  }
+const Btns = styled.ul`
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 40px;
 `;
+// const Pagination = styled.div`
+//   span {
+//     content: "";
+//     display: inline-block;
+//     width: 10px;
+//     height: 10px;
+//     border-radius: 50%;
+//     margin: 5px;
+//     background: ${theme.colors.primaryColor};
+//   }
+// `;

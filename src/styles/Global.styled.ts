@@ -55,18 +55,30 @@ body,
 
   scroll-padding-top: ${theme.sizes.headerHeight};
   scroll-behavior: smooth;
+
+  *::-webkit-scrollbar {
+  width: 12px; /* ширина scrollbar */
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: ${theme.colors.primaryColor}; /* цвет дорожки */
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: ${theme.colors.accentedColor}; /* цвет плашки */
+
+  border-radius: 20px; /* закругления плашки */
+  border: 2px solid ${theme.colors.primaryColor};; /* padding вокруг плашки */
+}
+
 }
 .app {
   padding-top: ${theme.sizes.headerHeight};
 }
-a {
-  text-decoration: none;
-}
-ul{
-  list-style: none;
-}
+
 section {
-  padding: calc(${theme.sizes.headerHeight} / 2) 0 ;
+  padding: calc(${theme.sizes.headerHeight} / 2) 0 ${theme.sizes.headerHeight} ;
 
 }
 section:nth-of-type(odd){
@@ -74,6 +86,13 @@ section:nth-of-type(odd){
 }
 section:nth-of-type(even){
   background:${theme.colors.bgSecondary}
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+ul{
+  list-style: none;
 }
 h1,h2,h3,h4,h5,h6 {
   font-size: inherit;

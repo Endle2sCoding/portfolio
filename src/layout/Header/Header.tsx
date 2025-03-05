@@ -8,8 +8,15 @@ export const HOME_ID = "Home";
 export const SKILLS_ID = "Skills";
 export const WORKS_ID = "Works";
 export const CONTACTS_ID = "Contact";
+export const TESTIMONY_ID = "Testimony";
 
-const menu = [`${HOME_ID}`, `${SKILLS_ID}`, `${WORKS_ID}`, `${CONTACTS_ID}`];
+const menu = [
+  `${HOME_ID}`,
+  `${SKILLS_ID}`,
+  `${WORKS_ID}`,
+  `${TESTIMONY_ID}`,
+  `${CONTACTS_ID}`,
+];
 export default function Header() {
   return (
     <StyledHeader>

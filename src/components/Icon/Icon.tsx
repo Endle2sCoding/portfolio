@@ -44,34 +44,44 @@ export const Icon = (props: IconPropsType) => {
 const SvgWrapper = styled.div<{
   $variant?: "clear" | "bgCircle" | "bgSquare";
 }>`
+  display: inline-block;
   ${(props) => {
     switch (props.$variant) {
       case "bgCircle":
         return css`
           position: relative;
+          z-index: 0;
+          padding: 8px 10px 6px;
+          transition: all linear ${theme.delay.transitionDelay};
+          svg {
+            transition: all linear ${theme.delay.transitionDelay};
+          }
           &:before {
+            border-radius: 50%;
             position: absolute;
+            z-index: -1;
+            content: "";
             top: 0;
             bottom: 0;
             right: 0;
             left: 0;
-            content: "";
             background: ${theme.colors.bgSecondary};
-            padding: 10px;
-            margin: 0 10px;
-            border-radius: 50%;
             transition: all linear ${theme.delay.transitionDelay};
-            &:hover {
+          }
+          &:hover {
+            &:before {
               transform: translateY(-4px);
               background: ${theme.colors.accentedColor};
-              svg {
-                fill: ${theme.colors.bgPrimary};
-              }
+            }
+            svg {
+              transform: translateY(-4px);
+              fill: ${theme.colors.bgPrimary};
             }
           }
         `;
       case "bgSquare":
         return css`
+          padding: 40px;
           position: relative;
           z-index: 0;
           &:before {
