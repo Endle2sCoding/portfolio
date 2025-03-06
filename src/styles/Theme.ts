@@ -1,11 +1,11 @@
 export const theme = {
   media: {
-    "desctop": "1200px",
-    "laptop": "961px",
-    "tablet": "max-width:767px",
-    "portraitTablets": "640px",
-    "eReaders": "480px",
-    "smartphones": ":400px",
+    "desctop": "screen and (max-width:1200px)",
+    "laptop": "screen and (max-width:961px)",
+    "tablet": "screen and (max-width:767px)",
+    "portraitTablets": "screen and (max-width:640px)",
+    "eReaders": "screen and (max-width:480px)",
+    "smartphone": "screen and (max-width:400px)",
   },
   delay: {
     transitionDelay: "0.3s",

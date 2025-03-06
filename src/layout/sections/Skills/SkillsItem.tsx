@@ -30,16 +30,20 @@ const Skill = styled.div`
     margin-top: 30px;
     font-family: ${theme.fonts.josefinsansBold};
   }
-  @media (max-width: ${theme.media.laptop}) {
+ @media ${theme.media.laptop} {
     width: calc(100% / 2);
   }
 
-  @media (max-width: ${theme.media.portraitTablets}) {
+ @media ${theme.media.portraitTablets} {
     .icon {
       &:before {
         position: absolute;
-        width: 50px;
-        height: 50px;
+        width: 55px;
+        height: 55px;
+      }
+      svg {
+        width: 35px;
+        height: 35px;
       }
     }
     span {

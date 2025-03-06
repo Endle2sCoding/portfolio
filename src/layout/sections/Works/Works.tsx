@@ -7,6 +7,7 @@ import { FlexWrapper } from "@/components/FlexWrapper/FlexWrapper";
 import { Container } from "@/components/Container/Container";
 import { WORKS_ID } from "@/layout/Header/Header";
 import { AppButton } from "@/components/AppButton/AppButton";
+import { theme } from "@/styles/Theme";
 
 const variants = ["all", "lanfing", "react", "spa"];
 
@@ -43,18 +44,14 @@ export const Works = () => {
               </li>
             ))}
           </Btns>
-          <FlexWrapper
-            justify="space-between"
-            wrap="wrap"
-            align="flex-start"
-          >
+          <ContentWrapper>
             {works.map((w, i) => (
               <WorksItem
                 key={w.title + i}
                 w={w}
               />
             ))}
-          </FlexWrapper>
+          </ContentWrapper>
           {/* <Pagination>
             <span></span>
             <span></span>
@@ -65,12 +62,30 @@ export const Works = () => {
     </WorksStyled>
   );
 };
-const WorksStyled = styled.section``;
+const WorksStyled = styled.section`
+  @media ${theme.media.eReaders} {
+    flex-direction: column;
+  }
+`;
+const ContentWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 20px;
+  @media ${theme.media.portraitTablets} {
+    flex-direction: column;
+    gap: 30px;
+  }
+`;
 const Btns = styled.ul`
   display: flex;
   align-items: center;
   gap: 30px;
   margin-bottom: 40px;
+  @media ${theme.media.eReaders} {
+    gap: 20px;
+  }
 `;
 // const Pagination = styled.div`
 //   span {

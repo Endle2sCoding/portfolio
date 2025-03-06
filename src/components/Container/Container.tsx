@@ -15,7 +15,7 @@ const StyledContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  @media (max-width: ${theme.media.desctop}) {
+ @media ${theme.media.desctop} {
     padding: 0 15px;
   }
 

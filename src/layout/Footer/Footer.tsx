@@ -5,8 +5,17 @@ import { Icon } from "@/components/Icon/Icon";
 
 import styled from "styled-components";
 const listIcon = [
-  // "instagram", 
-  "telegram", "vk", "linkedin"];
+  // "instagram",
+  {
+    iconId: "telegram",
+    link: "https://t.me/EndlessCoding",
+  },
+  // { iconId: "vk", link: "" },
+  {
+    iconId: "linkedin",
+    link: "https://www.linkedin.com/in/viacheslav-ivanov-784337354/",
+  },
+];
 
 export const Footer = () => {
   return (
@@ -19,14 +28,17 @@ export const Footer = () => {
           <Name>Viacheslav</Name>
           <ul>
             {listIcon.map((item, i) => (
-              <Item key={item + i}>
-                <AppLink to="/">
+              <Item key={item.iconId + i}>
+                <AppLink
+                  target="_blank"
+                  to={item.link}
+                >
                   <Icon
                     variant="bgCircle"
                     width="21"
                     height="21"
                     viewBox="0 0 21 21"
-                    iconId={item}
+                    iconId={item.iconId}
                   />
                 </AppLink>
               </Item>
@@ -45,12 +57,11 @@ const StyledFooter = styled.footer`
   ul {
     display: flex;
     padding: 30px 0;
-    gap:20px
+    gap: 20px;
   }
 `;
 const Name = styled.span``;
-const Item = styled.li`
-`;
+const Item = styled.li``;
 const Copyright = styled.p`
   color: rgba(255, 255, 255, 0.5);
   font-size: 12px;

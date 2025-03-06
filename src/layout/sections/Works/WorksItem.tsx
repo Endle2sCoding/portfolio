@@ -10,6 +10,13 @@ export type WorkType = {
   demo: string;
   code: string;
 };
+// const projects: Array<{
+//   imgSrc: string;
+//   title: string;
+//   desc: string;
+//   github: string;
+//   link: string;
+// }> = [{ imgSrc: "", title: "", desc: "", github: "", link: "" }];
 
 export const WorksItem = ({ w }: { w: WorkType }) => {
   return (
@@ -26,6 +33,7 @@ export const WorksItem = ({ w }: { w: WorkType }) => {
         <Text>{w.text}</Text>
         <Links>
           <AppLink
+            target="_blank"
             variant={"underlined"}
             to={"/"}
           >
@@ -44,8 +52,12 @@ export const WorksItem = ({ w }: { w: WorkType }) => {
 };
 const Work = styled.div`
   max-width: 540px;
-  width: 49%;
+  width: 48%;
+
   background: ${theme.colors.bgSecondary};
+  @media ${theme.media.portraitTablets} {
+    width: 100%;
+  }
 `;
 
 const ImgWrapper = styled.div`

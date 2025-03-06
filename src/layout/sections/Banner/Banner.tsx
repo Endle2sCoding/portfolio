@@ -1,6 +1,6 @@
 import bannerPhoto from "@/assets/img/bannerPhoto.jpg";
 import { Container } from "@/components/Container/Container";
-import { FlexWrapper } from "@/components/FlexWrapper/FlexWrapper";
+
 import { HOME_ID } from "@/layout/Header/Header";
 import { theme } from "@/styles/Theme";
 import styled from "styled-components";
@@ -8,35 +8,43 @@ export const Banner = () => {
   return (
     <StyledBanner id={`${HOME_ID}`}>
       <Container>
-        <FlexWrapper
-          wrap="wrap"
-          justify="space-around"
-          align="center"
-        >
-          <div>
+        <ContentWrapper>
+          <Content>
             <SupTitle>Hi There</SupTitle>
             <Name>
               I am <span>Viacheslav</span>
             </Name>
             <MainTitle>A Web Developer</MainTitle>
-          </div>
+          </Content>
           <PhotoWrapper>
             <Photo
               src={bannerPhoto}
               alt="photo"
             />
           </PhotoWrapper>
-        </FlexWrapper>
+        </ContentWrapper>
       </Container>
     </StyledBanner>
   );
 };
 
 const StyledBanner = styled.section`
-  @media (max-width: ${theme.media.tablet}) {
+  @media ${theme.media.tablet} {
     div {
       flex-direction: column;
     }
+  }
+`;
+const ContentWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  @media ${theme.media.tablet} {
+    flex-direction: column;
+    justify-content: center;
+    gap: 65px;
+    margin-left: 20px;
   }
 `;
 
@@ -46,7 +54,7 @@ const PhotoWrapper = styled.div`
   position: relative;
   z-index: 0;
   transform: translateX(-24px);
-  &:after {
+  &::before {
     content: "";
     position: absolute;
     z-index: -1;
@@ -56,12 +64,28 @@ const PhotoWrapper = styled.div`
     top: -20px;
     border: 5px solid ${theme.colors.accentedColor};
   }
-  @media (max-width: ${theme.media.laptop}) {
+  @media ${theme.media.laptop} {
     width: 300px;
     height: 380px;
-    &:after {
+    &::before {
       width: 300px;
       height: 420px;
+    }
+  }
+  @media ${theme.media.eReaders} {
+    width: 280px;
+    height: 360px;
+    &::before {
+      width: 280px;
+      height: 400px;
+    }
+  }
+  @media ${theme.media.smartphone} {
+    width: 240px;
+    height: 320px;
+    &::before {
+      width: 240px;
+      height: 360px;
     }
   }
 `;
@@ -75,10 +99,25 @@ const Photo = styled.img`
   right: 0;
   bottom: 0;
   z-index: 1;
-  @media (max-width: ${theme.media.laptop}) {
+  @media ${theme.media.laptop} {
     width: 300px;
     height: 380px;
   }
+  @media ${theme.media.eReaders} {
+    width: 280px;
+    height: 360px;
+  }
+  @media ${theme.media.eReaders} {
+    width: 280px;
+    height: 360px;
+  }
+  @media ${theme.media.smartphone} {
+    width: 240px;
+    height: 320px;
+  }
+`;
+const Content = styled.div`
+  text-align: left;
 `;
 const SupTitle = styled.h4`
   text-align: left;
@@ -88,7 +127,7 @@ const Name = styled.h2`
   font-size: ${theme.fonts.fontSize6xl};
   font-family: ${theme.fonts.josefinsansBold};
   letter-spacing: 5%;
-  margin: 10px 40px 10px 0;
+  margin: 10px 0;
   span {
     position: relative;
     z-index: 0;
@@ -102,6 +141,13 @@ const Name = styled.h2`
       background: ${theme.colors.bgGradient};
     }
   }
+
+  @media ${theme.media.laptop} {
+    font-size: ${theme.fonts.fontSize5xl};
+  }
+  @media ${theme.media.smartphone} {
+    font-size: ${theme.fonts.fontSize4xl};
+  }
 `;
 
 const MainTitle = styled.h1`
@@ -113,4 +159,7 @@ const MainTitle = styled.h1`
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  @media ${theme.media.smartphone} {
+    font-size: ${theme.fonts.fontSizeXl};
+  }
 `;

@@ -3,7 +3,8 @@ import { FlexWrapper } from "@/components/FlexWrapper/FlexWrapper";
 import { Logo } from "@/components/Logo/Logo";
 import { Nav } from "@/components/Nav/Nav";
 import { theme } from "@/styles/Theme";
-import styled from "styled-components";
+import { useState } from "react";
+import styled, { css } from "styled-components";
 export const HOME_ID = "Home";
 export const SKILLS_ID = "Skills";
 export const WORKS_ID = "Works";
@@ -18,6 +19,7 @@ const menu = [
   `${CONTACTS_ID}`,
 ];
 export default function Header() {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
   return (
     <StyledHeader>
       <Container>
@@ -27,10 +29,15 @@ export default function Header() {
         >
           <Logo />
           <Nav
+            isOpen={isOpen}
+            setIsOpen={setIsOpen}
             list={menu}
             className="nav"
           />
-          <Burger>
+          <Burger
+            $isOpen={isOpen}
+            onClick={() => setIsOpen((prev) => !prev)}
+          >
             <span></span>
           </Burger>
         </FlexWrapper>
@@ -48,39 +55,82 @@ const StyledHeader = styled.header`
   opacity: 0.98;
   z-index: 1000;
   height: ${theme.sizes.headerHeight};
-  @media (max-width: ${theme.media.portraitTablets}) {
-    .nav {
-      display: none;
-    }
-  }
 `;
-const Burger = styled.span`
-  @media (min-width: ${theme.media.portraitTablets}) {
-    display: none;
-  }
-  span {
-    position: relative;
+const Burger = styled.span<{ $isOpen: boolean }>`
+  display: none;
+  @media ${theme.media.tablet} {
     display: block;
-    width: 30px;
-    height: 4px;
-    background: ${theme.colors.primaryColor};
-    &::before {
-      position: absolute;
-      top: -10px;
-      content: "";
-      display: block;
-      width: 30px;
-      height: 4px;
-      background: ${theme.colors.primaryColor};
-    }
-    &::after {
-      position: absolute;
-      top: 10px;
-      content: "";
-      display: block;
-      width: 30px;
-      height: 4px;
-      background: ${theme.colors.primaryColor};
-    }
+    position: ${(props) => props.$isOpen && "fixed"};
+    z-index: ${(props) => props.$isOpen && "10001"};
+    top: ${(props) => props.$isOpen && "48px"};
+    right: ${(props) => props.$isOpen && "16px"};
   }
+  ${(props) => {
+    switch (props.$isOpen) {
+      case true:
+        return css`
+          span {
+            position: relative;
+            display: block;
+            width: 30px;
+            height: 4px;
+            background: none;
+
+            &::before {
+              transition: all linear ${theme.delay.transitionDelay};
+              transform: rotate(-45deg);
+              position: absolute;
+              content: "";
+              display: block;
+              width: 30px;
+              height: 4px;
+              background: ${theme.colors.primaryColor};
+            }
+            &::after {
+              transition: all linear ${theme.delay.transitionDelay};
+              transform: rotate(45deg);
+              position: absolute;
+              content: "";
+              display: block;
+              width: 30px;
+              height: 4px;
+              background: ${theme.colors.primaryColor};
+            }
+          }
+        `;
+      case false:
+        return css`
+          span {
+            transition: all linear ${theme.delay.transitionDelay};
+            position: relative;
+            display: block;
+            width: 30px;
+            height: 4px;
+            background: ${theme.colors.primaryColor};
+            &::before {
+              transition: all linear ${theme.delay.transitionDelay};
+              position: absolute;
+              top: -10px;
+              content: "";
+              display: block;
+              width: 30px;
+              height: 4px;
+              background: ${theme.colors.primaryColor};
+            }
+            &::after {
+              transition: all linear ${theme.delay.transitionDelay};
+              position: absolute;
+              top: 10px;
+              content: "";
+              display: block;
+              width: 30px;
+              height: 4px;
+              background: ${theme.colors.primaryColor};
+            }
+          }
+        `;
+      default:
+        return css``;
+    }
+  }}
 `;
