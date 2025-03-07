@@ -32,7 +32,7 @@ export const Contacts = () => {
             <AppButton
               type="submit"
               onClick={(e) => e.stopPropagation()}
-              variant="filed"
+              variant="filled"
             >
               send message
             </AppButton>

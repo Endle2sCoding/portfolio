@@ -33,6 +33,9 @@ const StyledBanner = styled.section`
     div {
       flex-direction: column;
     }
+    @media ${theme.media.eReaders} {
+      padding-bottom: 100px;
+    }
   }
 `;
 const ContentWrapper = styled.div`
@@ -124,7 +127,7 @@ const SupTitle = styled.h4`
 `;
 
 const Name = styled.h2`
-  font-size: ${theme.fonts.fontSize6xl};
+  font-size: ${theme.fonts.fontSize6xl48};
   font-family: ${theme.fonts.josefinsansBold};
   letter-spacing: 5%;
   margin: 10px 0;
@@ -143,15 +146,15 @@ const Name = styled.h2`
   }
 
   @media ${theme.media.laptop} {
-    font-size: ${theme.fonts.fontSize5xl};
+    font-size: ${theme.fonts.fontSize5xl40};
   }
   @media ${theme.media.smartphone} {
-    font-size: ${theme.fonts.fontSize4xl};
+    font-size: ${theme.fonts.fontSize4xl36};
   }
 `;
 
 const MainTitle = styled.h1`
-  font-size: ${theme.fonts.fontSize2xl};
+  font-size: ${theme.fonts.fontSize2xl28};
   text-align: left;
   color: transparent;
 
@@ -160,6 +163,6 @@ const MainTitle = styled.h1`
   background-clip: text;
   -webkit-text-fill-color: transparent;
   @media ${theme.media.smartphone} {
-    font-size: ${theme.fonts.fontSizeXl};
+    font-size: ${theme.fonts.fontSizeXl24};
   }
 `;

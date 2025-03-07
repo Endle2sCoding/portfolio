@@ -8,8 +8,8 @@ export const Container = ({ children }: { children: ReactNode }) => {
 
 const StyledContainer = styled.div`
   max-width: 1200px;
-  padding: 0 30px;
   width: 100%;
+  padding: 0 30px;
   height: 100%;
   margin: 0 auto;
   display: flex;
@@ -19,5 +19,5 @@ const StyledContainer = styled.div`
     padding: 0 15px;
   }
 
-  border: 1px solid red;
+  /* border: 1px solid red; */
 `;

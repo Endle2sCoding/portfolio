@@ -30,11 +30,11 @@ const Skill = styled.div`
     margin-top: 30px;
     font-family: ${theme.fonts.josefinsansBold};
   }
- @media ${theme.media.laptop} {
+  @media ${theme.media.laptop} {
     width: calc(100% / 2);
   }
 
- @media ${theme.media.portraitTablets} {
+  @media ${theme.media.portraitTablets} {
     .icon {
       &:before {
         position: absolute;
@@ -47,7 +47,7 @@ const Skill = styled.div`
       }
     }
     span {
-      font-size: ${theme.fonts.fontSizeXs};
+      font-size: ${theme.fonts.fontSizeXs12};
     }
   }
 `;

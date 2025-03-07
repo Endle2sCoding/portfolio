@@ -8,7 +8,7 @@ export const Title = ({ children }: { children: string }) => {
 const StyledTitle = styled.h2`
   text-align: center;
   margin-bottom: 80px;
-  font-size: ${theme.fonts.fontSize4xl};
+  font-size: ${theme.fonts.fontSize4xl36};
 
   position: relative;
   padding: 30px;

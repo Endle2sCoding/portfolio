@@ -2,20 +2,23 @@ import { theme } from "@/styles/Theme";
 import { ReactNode } from "react";
 import { Link, LinkProps } from "react-router-dom";
 import styled, { css } from "styled-components";
-type AppLinkVariant = "clear" | "underlined";
+type AppLinkVariant = "clear" | "underlined" | "filled";
 interface AppLinkProps extends LinkProps {
   children: ReactNode;
   variant?: AppLinkVariant;
+  className?: string;
 }
 
 export const AppLink = ({
   children,
   to = "/",
   variant = "clear",
+  className,
   ...otherProps
 }: AppLinkProps) => {
   return (
     <StyledLink
+      className={className}
       to={to}
       $variant={variant}
       {...otherProps}
@@ -26,8 +29,21 @@ export const AppLink = ({
 };
 
 export const StyledLink = styled(Link)<{ $variant: AppLinkVariant }>`
+  transition: opacity linear ${theme.delay.transitionDelay};
   ${(props) => {
     switch (props.$variant) {
+      case "filled":
+        return css`
+          background: ${theme.colors.accentedColor};
+          padding: 10px 30px;
+          border: 2px solid ${theme.colors.accentedColor};
+          border-radius: 1px;
+          transition: background linear ${theme.delay.transitionDelay};
+          &:hover {
+            background: ${theme.colors.bgSecondary};
+            color: ${theme.colors.accentedColor};
+          }
+        `;
       case "underlined":
         return css`
           position: relative;
@@ -59,7 +75,7 @@ export const StyledLink = styled(Link)<{ $variant: AppLinkVariant }>`
 
       default:
         return css`
-          /* padding: 10px; */
+          transition: opacity linear ${theme.delay.transitionDelay};
         `;
     }
   }}

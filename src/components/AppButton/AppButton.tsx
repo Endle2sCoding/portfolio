@@ -2,7 +2,7 @@ import { theme } from "@/styles/Theme";
 import { ButtonHTMLAttributes, ReactNode } from "react";
 import styled, { css } from "styled-components";
 
-type AppButtonVariant = "clear" | "filed" | "underlined";
+type AppButtonVariant = "clear" | "filled" | "underlined";
 interface AppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
   variant?: AppButtonVariant;
@@ -28,7 +28,7 @@ const StyledAppButton = styled.button<{ $variant: AppButtonVariant }>`
   color: ${theme.colors.primaryColor};
   ${(props) => {
     switch (props.$variant) {
-      case "filed":
+      case "filled":
         return css`
           background: ${theme.colors.accentedColor};
           padding: 10px 30px;

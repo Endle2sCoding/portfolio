@@ -1,4 +1,3 @@
-import { AppButton } from "@/components/AppButton/AppButton";
 import { AppLink } from "@/components/AppLink/AppLink";
 import { theme } from "@/styles/Theme";
 
@@ -22,7 +21,13 @@ export const WorksItem = ({ w }: { w: WorkType }) => {
   return (
     <Work>
       <ImgWrapper>
-        <StyledButton variant="filed">{`view project`}</StyledButton>
+        <AppLink
+          to={w.demo}
+          variant="filled"
+        >
+          {`view project`}
+        
+        </AppLink>
         <Img
           src={w.img}
           alt={w.title}
@@ -35,13 +40,13 @@ export const WorksItem = ({ w }: { w: WorkType }) => {
           <AppLink
             target="_blank"
             variant={"underlined"}
-            to={"/"}
+            to={w.code}
           >
             Demo
           </AppLink>
           <AppLink
             variant={"underlined"}
-            to={"/"}
+            to={w.demo}
           >
             Code
           </AppLink>
@@ -51,13 +56,9 @@ export const WorksItem = ({ w }: { w: WorkType }) => {
   );
 };
 const Work = styled.div`
-  max-width: 540px;
-  width: 48%;
-
+  width: 90%;
+  margin: 0 auto;
   background: ${theme.colors.bgSecondary};
-  @media ${theme.media.portraitTablets} {
-    width: 100%;
-  }
 `;
 
 const ImgWrapper = styled.div`
@@ -81,12 +82,21 @@ const ImgWrapper = styled.div`
 
     opacity: 0;
   }
-
+  a {
+    transition: opacity linear ${theme.delay.transitionDelay};
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+  }
   &:hover {
+    transition: opacity linear ${theme.delay.transitionDelay};
     &:before {
       opacity: 1;
     }
-    button {
+    a {
+      transition: opacity linear ${theme.delay.transitionDelay};
       opacity: 1;
     }
   }
@@ -96,15 +106,6 @@ const Img = styled.img`
   width: 100%;
   max-height: 260px;
   object-fit: cover;
-`;
-const StyledButton = styled(AppButton)`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate3d(-50%, -50%, 0);
-  opacity: 0;
-
-  transition: opacity background linear ${theme.delay.transitionDelay};
 `;
 
 const Links = styled.div`

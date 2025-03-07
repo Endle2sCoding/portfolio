@@ -1,3 +1,4 @@
+import { Container } from "@/components/Container/Container";
 import { FlexWrapper } from "@/components/FlexWrapper/FlexWrapper";
 import { Icon } from "@/components/Icon/Icon";
 import { Title } from "@/components/Title/Title";
@@ -14,29 +15,31 @@ const reviews = [
 export const Testimony = () => {
   return (
     <StyledTestimony id={`${TESTIMONY_ID}`}>
-      <FlexWrapper directioin="column">
-        <Title>Testimony</Title>
-        <FlexWrapper
-          directioin="column"
-          align="center"
-        >
-          {reviews.map((r, i) => (
-            <ListItem key={r.name + i}>
-              <Icon
-                iconId="quote"
-                variant="bgSquare"
-              />
-              <p>{r.text}</p>
-              <Name>@{r.name}</Name>
-            </ListItem>
-          ))}
-          <Pagination>
-            <span></span>
-            <span></span>
-            <span></span>
-          </Pagination>
+      <Container>
+        <FlexWrapper directioin="column">
+          <Title>Testimony</Title>
+          <FlexWrapper
+            directioin="column"
+            align="center"
+          >
+            {reviews.map((r, i) => (
+              <ListItem key={r.name + i}>
+                <Icon
+                  iconId="quote"
+                  variant="bgSquare"
+                />
+                <p>{r.text}</p>
+                <Name>@{r.name}</Name>
+              </ListItem>
+            ))}
+            <Pagination>
+              <span></span>
+              <span></span>
+              <span></span>
+            </Pagination>
+          </FlexWrapper>
         </FlexWrapper>
-      </FlexWrapper>
+      </Container>
     </StyledTestimony>
   );
 };

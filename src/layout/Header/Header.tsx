@@ -15,7 +15,7 @@ const menu = [
   `${HOME_ID}`,
   `${SKILLS_ID}`,
   `${WORKS_ID}`,
-  `${TESTIMONY_ID}`,
+  // `${TESTIMONY_ID}`,
   `${CONTACTS_ID}`,
 ];
 export default function Header() {

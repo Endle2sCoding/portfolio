@@ -1,6 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 import { theme } from "./Theme";
-
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 export const GlobalStyles = createGlobalStyle`
 @font-face {
   font-family: "Poppins-Medium";
@@ -49,7 +50,7 @@ body,
   background: ${theme.colors.bgPrimary};
   color: ${theme.colors.primaryColor};
   font-family: ${theme.fonts.popinsMedium}, sans-serif;
-  font-size: ${theme.fonts.fontSizeM};
+  font-size: ${theme.fonts.fontSizeM16};
   line-height: 1.2;
   font-weight: 400;
 
@@ -59,6 +60,7 @@ body,
   *::-webkit-scrollbar {
   width: 12px; /* ширина scrollbar */
   height: 8px;
+  
 }
 
 *::-webkit-scrollbar-track {
@@ -78,7 +80,10 @@ body,
 }
 
 section {
-  padding: calc(${theme.sizes.headerHeight} / 2) 0 ${theme.sizes.headerHeight} ;
+  padding: calc(${theme.sizes.headerHeight} / 2) 0 ${theme.sizes.headerHeight};
+  @media ${theme.media.eReaders}{
+    padding: calc(${theme.sizes.headerHeight} / 4) 0 calc(${theme.sizes.headerHeight} / 2)
+  }
 
 }
 section:nth-of-type(odd){
