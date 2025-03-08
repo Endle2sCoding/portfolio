@@ -1,5 +1,6 @@
 export const theme = {
   media: {
+    "bigdesctop": "screen and (max-width:1400px)",
     "desctop": "screen and (max-width:1200px)",
     "laptop": "screen and (max-width:961px)",
     "tablet": "screen and (max-width:767px)",

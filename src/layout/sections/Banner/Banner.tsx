@@ -4,6 +4,8 @@ import { Container } from "@/components/Container/Container";
 import { HOME_ID } from "@/layout/Header/Header";
 import { theme } from "@/styles/Theme";
 import styled from "styled-components";
+import Typewriter from "typewriter-effect";
+import Tilt from "react-parallax-tilt";
 export const Banner = () => {
   return (
     <StyledBanner id={`${HOME_ID}`}>
@@ -14,14 +16,34 @@ export const Banner = () => {
             <Name>
               I am <span>Viacheslav</span>
             </Name>
-            <MainTitle>A Web Developer</MainTitle>
+            <MainTitle>
+              <p>A Web Developer</p>
+              <p>A Fronted Developer</p>
+              <Typewriter
+                options={{
+                  strings: ["A Web Developer", "A Fronted Developer"],
+                  autoStart: true,
+                  loop: true,
+                }}
+              />
+            </MainTitle>
           </Content>
-          <PhotoWrapper>
-            <Photo
-              src={bannerPhoto}
-              alt="photo"
-            />
-          </PhotoWrapper>
+          <Tilt
+            className="parallax-effect-img"
+            tiltMaxAngleX={10}
+            tiltMaxAngleY={10}
+            perspective={800}
+            transitionSpeed={1500}
+            scale={1.1}
+            gyroscope={true}
+          >
+            <PhotoWrapper>
+              <Photo
+                src={bannerPhoto}
+                alt="photo"
+              />
+            </PhotoWrapper>
+          </Tilt>
         </ContentWrapper>
       </Container>
     </StyledBanner>
@@ -29,6 +51,9 @@ export const Banner = () => {
 };
 
 const StyledBanner = styled.section`
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
   @media ${theme.media.tablet} {
     div {
       flex-direction: column;
@@ -154,6 +179,9 @@ const Name = styled.h2`
 `;
 
 const MainTitle = styled.h1`
+  p {
+    display: none;
+  }
   font-size: ${theme.fonts.fontSize2xl28};
   text-align: left;
   color: transparent;

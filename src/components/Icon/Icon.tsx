@@ -113,6 +113,26 @@ const SvgWrapper = styled.div<{
 const SvgStyled = styled.svg<{
   $fill: "primary" | "secondary" | "accented";
 }>`
+  ${(props) => {
+    switch (props.$fill) {
+      case "accented":
+        return css`
+          fill: ${theme.colors.accentedColor};
+        `;
+      case "primary":
+        return css`
+          fill: ${theme.colors.primaryColor};
+          &:hover {
+            fill: ${theme.colors.accentedColor};
+          }
+        `;
+
+      default:
+        return css`
+          fill: ${theme.colors.secondaryColor};
+        `;
+    }
+  }}
   fill: ${(props) =>
     props.$fill === "accented"
       ? `${theme.colors.accentedColor}`

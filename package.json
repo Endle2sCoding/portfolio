@@ -10,19 +10,21 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tsparticles/react": "^3.0.0",
+    "@tsparticles/slim": "^3.8.1",
     "@types/node": "^22.13.5",
     "react": "^19.0.0",
+    "react-alice-carousel": "^2.9.1",
     "react-dom": "^19.0.0",
+    "react-parallax-tilt": "^1.7.286",
     "react-router-dom": "^7.2.0",
-    "react-slick": "^0.30.3",
-    "slick-carousel": "^1.8.1",
-    "styled-components": "^6.1.15"
+    "styled-components": "^6.1.15",
+    "typewriter-effect": "^2.21.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.19.0",
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
-    "@types/react-slick": "^0.23.13",
     "@vitejs/plugin-react": "^4.3.4",
     "eslint": "^9.19.0",
     "eslint-plugin-react-hooks": "^5.0.0",

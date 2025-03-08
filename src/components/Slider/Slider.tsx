@@ -1,45 +1,26 @@
 import { WorksItem, WorkType } from "@/layout/sections/Works/WorksItem";
-import { theme } from "@/styles/Theme";
-import Slider from "react-slick";
-import styled from "styled-components";
+import AliceCarousel from "react-alice-carousel";
+import "react-alice-carousel/lib/alice-carousel.css";
 
-function SimpleSlider({ works }: { works: WorkType[] }) {
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  };
+const responsive = {
+  0: { items: 1 },
+  960: { items: 3 },
+  1024: { items: 3 },
+};
+
+export const Carousel = ({ works }: { works: WorkType[] }) => {
   return (
-    <StyledSlider className="slider-container">
-      <Slider {...settings}>
-        {works.map((w, i) => (
-          <WorksItem
-            key={w.title + i}
-            w={w}
-          />
-        ))}
-      </Slider>
-    </StyledSlider>
+    <AliceCarousel
+      infinite
+      mouseTracking
+      items={works.map((w, i) => (
+        <WorksItem
+          w={w}
+          key={w.title + i}
+        />
+      ))}
+      responsive={responsive}
+      controlsStrategy="alternate"
+    />
   );
-}
-
-export default SimpleSlider;
-const StyledSlider = styled.div`
-  max-width: 1200px;
-  width: 100%;
-  padding: 0 30px;
-  .slick-dots {
-    bottom: -35px;
-    li {
-      button {
-        &:before {
-          background: ${theme.colors.accentedColor};
-          border-radius: 50%;
-          color: transparent;
-        }
-      }
-    }
-  }
-`;
+};

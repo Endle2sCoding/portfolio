@@ -1,7 +1,5 @@
 import { createGlobalStyle } from "styled-components";
 import { theme } from "./Theme";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 export const GlobalStyles = createGlobalStyle`
 @font-face {
   font-family: "Poppins-Medium";
@@ -80,6 +78,10 @@ body,
 }
 
 section {
+  &:not(#home){
+  position: relative;
+
+  }
   padding: calc(${theme.sizes.headerHeight} / 2) 0 ${theme.sizes.headerHeight};
   @media ${theme.media.eReaders}{
     padding: calc(${theme.sizes.headerHeight} / 4) 0 calc(${theme.sizes.headerHeight} / 2)

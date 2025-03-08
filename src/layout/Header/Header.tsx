@@ -5,19 +5,21 @@ import { Nav } from "@/components/Nav/Nav";
 import { theme } from "@/styles/Theme";
 import { useState } from "react";
 import styled, { css } from "styled-components";
-export const HOME_ID = "Home";
-export const SKILLS_ID = "Skills";
-export const WORKS_ID = "Works";
-export const CONTACTS_ID = "Contact";
-export const TESTIMONY_ID = "Testimony";
 
-const menu = [
-  `${HOME_ID}`,
-  `${SKILLS_ID}`,
-  `${WORKS_ID}`,
-  // `${TESTIMONY_ID}`,
-  `${CONTACTS_ID}`,
+export const HOME_ID = "home";
+export const SKILLS_ID = "skills";
+export const WORKS_ID = "works";
+export const CONTACTS_ID = "contact";
+export const TESTIMONY_ID = "testimony";
+
+const list = [
+  { title: `${HOME_ID}`, id: `${HOME_ID}` },
+  { title: `${SKILLS_ID}`, id: `${SKILLS_ID}` },
+  { title: `${WORKS_ID}`, id: `${WORKS_ID}` },
+  // { title: `${TESTIMONY_ID}`, id: `${TESTIMONY_ID}` },
+  { title: `${CONTACTS_ID}`, id: `${CONTACTS_ID}` },
 ];
+
 export default function Header() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   return (
@@ -31,7 +33,7 @@ export default function Header() {
           <Nav
             isOpen={isOpen}
             setIsOpen={setIsOpen}
-            list={menu}
+            list={list}
             className="nav"
           />
           <Burger
@@ -52,7 +54,7 @@ const StyledHeader = styled.header`
   left: 0;
   right: 0;
   background: ${theme.colors.bgPrimary};
-  opacity: 0.98;
+  opacity: 0.99;
   z-index: 1000;
   height: ${theme.sizes.headerHeight};
 `;

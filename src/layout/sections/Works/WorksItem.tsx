@@ -22,11 +22,11 @@ export const WorksItem = ({ w }: { w: WorkType }) => {
     <Work>
       <ImgWrapper>
         <AppLink
+          target="_blank"
           to={w.demo}
           variant="filled"
         >
           {`view project`}
-        
         </AppLink>
         <Img
           src={w.img}

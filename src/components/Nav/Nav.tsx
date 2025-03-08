@@ -7,7 +7,7 @@ export const Nav = ({
   list,
   setIsOpen,
 }: {
-  list: string[];
+  list: Array<{ title: string; id: string }>;
   className?: string;
   isOpen: boolean;
   setIsOpen: (arg: boolean) => void;
@@ -21,9 +21,9 @@ export const Nav = ({
         {list.map((l, i) => (
           <Item
             onClick={() => setIsOpen(false)}
-            key={l + i}
+            key={l.title + i}
           >
-            <Link href={`#${l}`}>{l}</Link>
+            <Link href={`#${l.title}`}>{l.title}</Link>
           </Item>
         ))}
       </List>
@@ -40,11 +40,12 @@ const StyledNav = styled.nav<{ $isOpen: boolean }>`
     left: 0;
     right: 0;
     height: 100vh;
-    top: -100vh;
+    top: 0;
+    transform: translateY(-100%);
     ${(props) =>
       props.$isOpen
         ? css`
-            transform: translateY(100vh);
+            transform: translateY(0);
             transition: all linear ${theme.delay.transitionDelay};
           `
         : css`
@@ -56,6 +57,7 @@ const List = styled.ul<{ $isOpen: boolean }>`
   display: flex;
   justify-content: space-between;
   align-content: center;
+  text-transform: capitalize;
   @media ${theme.media.tablet} {
     width: 100%;
     height: 100%;

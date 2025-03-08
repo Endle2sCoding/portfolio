@@ -7,7 +7,7 @@ export const Container = ({ children }: { children: ReactNode }) => {
 };
 
 const StyledContainer = styled.div`
-  max-width: 1200px;
+  max-width: 1460px;
   width: 100%;
   padding: 0 30px;
   height: 100%;
@@ -15,7 +15,8 @@ const StyledContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
- @media ${theme.media.desctop} {
+  @media ${theme.media.desctop} {
+    max-width: 1200px;
     padding: 0 15px;
   }
 

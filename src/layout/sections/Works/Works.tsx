@@ -6,51 +6,30 @@ import workImg from "@/assets/img/Rectangle 14.png";
 import { FlexWrapper } from "@/components/FlexWrapper/FlexWrapper";
 import { Container } from "@/components/Container/Container";
 import { WORKS_ID } from "@/layout/Header/Header";
+import { Carousel } from "@/components/Slider/Slider";
 import { theme } from "@/styles/Theme";
-import CenterMode from "@/components/Slider/Slider";
 
 const works: WorkType[] = [
   {
     img: workImg,
-    title: "Social Network",
-    text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim. Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim. Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+    title: "Todolist",
+    text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et",
     demo: "https://github.com/Endle2sCoding",
-    code: "https://github.com/Endle2sCoding",
+    code: "https://github.com/Endle2sCoding/todolist",
   },
   {
     img: workImg,
-    title: "Timer",
-    text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim. Lorem ipsum dolor sit amet, consectetur adipisicing elit  ut labore et dolore magna aliqua Ut enim",
+    title: "sneakers store",
+    text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do ",
     demo: "https://github.com/Endle2sCoding",
-    code: "https://github.com/Endle2sCoding",
+    code: "https://github.com/Endle2sCoding/sneakers-store",
   },
   {
     img: workImg,
-    title: "Social Network",
-    text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim. Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim. Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+    title: "Crypto",
+    text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et ",
     demo: "https://github.com/Endle2sCoding",
-    code: "https://github.com/Endle2sCoding",
-  },
-  {
-    img: workImg,
-    title: "Timer",
-    text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim. Lorem ipsum dolor sit amet, consectetur adipisicing elit  ut labore et dolore magna aliqua Ut enim",
-    demo: "https://github.com/Endle2sCoding",
-    code: "https://github.com/Endle2sCoding",
-  },
-  {
-    img: workImg,
-    title: "Social Network",
-    text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim. Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim. Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-    demo: "https://github.com/Endle2sCoding",
-    code: "https://github.com/Endle2sCoding",
-  },
-  {
-    img: workImg,
-    title: "Timer",
-    text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim. Lorem ipsum dolor sit amet, consectetur adipisicing elit  ut labore et dolore magna aliqua Ut enim",
-    demo: "https://github.com/Endle2sCoding",
-    code: "https://github.com/Endle2sCoding",
+    code: "https://github.com/Endle2sCoding/crypto",
   },
 ];
 export const Works = () => {
@@ -63,11 +42,30 @@ export const Works = () => {
           justify="space-between"
         >
           <Title>Works</Title>
-
-          <CenterMode works={works} />
+          <Carousel works={works} />
         </FlexWrapper>
       </Container>
     </WorksStyled>
   );
 };
-const WorksStyled = styled.section``;
+const WorksStyled = styled.section`
+  .alice-carousel__stage {
+  }
+  .alice-carousel__dots {
+    margin-top: 60px;
+  }
+  .alice-carousel__dots-item {
+    padding: 7px;
+    transition: all linear ${theme.delay.transitionDelay};
+  }
+
+  .alice-carousel__dots-item:not(.__custom).__active {
+    height: 14px;
+    width: 30px;
+    border-radius: 25px;
+  }
+  .alice-carousel__next-btn-item,
+  .alice-carousel__prev-btn-item {
+    display: none;
+  }
+`;
