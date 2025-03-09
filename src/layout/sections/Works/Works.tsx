@@ -51,14 +51,19 @@ export const Works = () => {
 const WorksStyled = styled.section`
   .alice-carousel__stage {
   }
-  .alice-carousel__dots {
+  .alice-carousel__dot {
     margin-top: 60px;
   }
   .alice-carousel__dots-item {
     padding: 7px;
     transition: all linear ${theme.delay.transitionDelay};
+    &:hover {
+      background: ${theme.colors.accentedColor};
+    }
   }
-
+  .alice-carousel__dots-item:not(.__custom).__active {
+    background: ${theme.colors.accentedColor};
+  }
   .alice-carousel__dots-item:not(.__custom).__active {
     height: 14px;
     width: 30px;

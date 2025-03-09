@@ -10,11 +10,15 @@ const listIcon = [
     iconId: "telegram",
     link: "https://t.me/EndlessCoding",
   },
-  // { iconId: "vk", link: "" },
+  { iconId: "vk", link: "https://vk.com/id949021058" },
   {
     iconId: "linkedin",
     link: "https://www.linkedin.com/in/viacheslav-ivanov-784337354/",
   },
+  // {
+  //   iconId: "email",
+  //   link: " https://mail.yahoo.com/endlesscoding@yahoo.com",
+  // },
 ];
 
 export const Footer = () => {

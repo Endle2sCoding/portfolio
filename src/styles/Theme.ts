@@ -39,6 +39,7 @@ export const theme = {
     accentedColor: "#579191",
     accentedColorOpacity: "#57919170",
     notAccentedColor: "#ffffff19",
-    bgGradient: `linear-gradient(to right, #579191, gray);`
+    bgGradient: `linear-gradient(to right, #579191, gray);`,
+    errorColor: "#ce2b2b",
   }
 };
