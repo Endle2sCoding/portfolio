@@ -2,18 +2,23 @@ import { AppButton } from "@/components/AppButton/AppButton";
 import { AppInput } from "@/components/AppInput/AppInput";
 import { Container } from "@/components/Container/Container";
 import { FlexWrapper } from "@/components/FlexWrapper/FlexWrapper";
+import { SuccessMessage } from "@/components/SuccessMessage/SuccessMessage";
 import { Title } from "@/components/Title/Title";
 import { CONTACTS_ID } from "@/layout/Header/Header";
+import { theme } from "@/styles/Theme";
 import { useState } from "react";
 import styled from "styled-components";
 
 export const Contacts = () => {
   const [name, setName] = useState("");
+  const [nameError, setNameError] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [telegram, setTelegram] = useState("");
   const [message, setMessage] = useState("");
+  const [messageError, setMessageError] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
   return (
     <StyledContacts id={`${CONTACTS_ID}`}>
       <Container>
@@ -38,6 +43,7 @@ export const Contacts = () => {
                 (telegram !== "" || phone !== "" || email !== "") &&
                 message !== ""
               ) {
+                setLoading(true);
                 fetch(
                   `https://api.telegram.org/bot${telegram_bot_token}/sendMessage`,
                   {
@@ -61,20 +67,30 @@ export const Contacts = () => {
                   })
                   .catch((error) => {
                     console.error("Error sending message:", error);
-                  });
+                  })
+                  .finally(() => setTimeout(() => setLoading(false), 1500));
               }
             }}
           >
+            <SuccessMessage loading={loading} />
             <AppInput
+              errorMessage="Name can not be empty"
+              error={nameError}
+              disabled={loading}
               value={name}
               onChange={(value: string) => {
                 setName(value);
               }}
+              setError={(value: string) => setNameError(value)}
               placeholder="Name"
             />
-            <FormTitle>Fill in one of the fields to contact</FormTitle>
+            <FormTitle $loading={loading}>
+              Fill in one of the fields to contact
+            </FormTitle>
             <AppInput
+              disabled={loading}
               error={error}
+              errorMessage={"Fill in one of the fields to contact"}
               setError={(value: string) => setError(value)}
               value={telegram}
               onChange={(value: string) => {
@@ -83,6 +99,8 @@ export const Contacts = () => {
               placeholder="Telegram"
             />
             <AppInput
+              errorMessage={"Fill in one of the fields to contact"}
+              disabled={loading}
               error={error}
               setError={(value: string) => setError(value)}
               value={phone}
@@ -92,6 +110,8 @@ export const Contacts = () => {
               placeholder="Phone"
             />
             <AppInput
+              errorMessage={"Fill in one of the fields to contact"}
+              disabled={loading}
               error={error}
               setError={(value: string) => setError(value)}
               value={email}
@@ -102,6 +122,10 @@ export const Contacts = () => {
             />
 
             <AppInput
+              errorMessage={"Message can not be empty"}
+              error={messageError}
+              setError={(value: string) => setMessageError(value)}
+              disabled={loading}
               as={"textarea"}
               value={message}
               onChange={(value: string) => {
@@ -111,6 +135,18 @@ export const Contacts = () => {
             />
 
             <AppButton
+              onClick={() => {
+                if (name === "") {
+                  setNameError("Name can not be empty");
+                }
+                if (message === "") {
+                  setMessageError("Message can not be empty");
+                }
+                if (phone === "" && email === "" && telegram === "") {
+                  setError("Fill in one of the fields to contact");
+                }
+              }}
+              disabled={loading}
               type="submit"
               variant="filled"
             >
@@ -124,6 +160,8 @@ export const Contacts = () => {
 };
 const StyledContacts = styled.section``;
 const StyledForm = styled.form`
+  position: relative;
+  z-index: 0;
   max-width: 540px;
   width: 100%;
   display: flex;
@@ -131,6 +169,8 @@ const StyledForm = styled.form`
   align-items: center;
   gap: 16px;
 `;
-const FormTitle = styled.h4`
+const FormTitle = styled.h4<{ $loading?: boolean }>`
   margin-top: 30px;
+  opacity: ${(props) =>
+    props.$loading === true ? `${theme.opacity.opacityDisabled}` : `1`};
 `;

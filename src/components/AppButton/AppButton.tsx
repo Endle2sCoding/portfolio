@@ -6,15 +6,18 @@ type AppButtonVariant = "clear" | "filled" | "underlined";
 interface AppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
   variant?: AppButtonVariant;
+  disabled?: boolean;
 }
 
 export const AppButton = ({
   children,
   variant = "clear",
+  disabled,
   ...otherProps
 }: AppButtonProps) => {
   return (
     <StyledAppButton
+      $disabled={disabled}
       {...otherProps}
       $variant={variant}
     >
@@ -22,10 +25,15 @@ export const AppButton = ({
     </StyledAppButton>
   );
 };
-const StyledAppButton = styled.button<{ $variant: AppButtonVariant }>`
+const StyledAppButton = styled.button<{
+  $variant: AppButtonVariant;
+  $disabled?: boolean;
+}>`
   cursor: pointer;
   text-transform: uppercase;
   color: ${theme.colors.primaryColor};
+  opacity: ${(props) =>
+    props.$disabled === true ? `${theme.opacity.opacityDisabled}` : `1`};
   ${(props) => {
     switch (props.$variant) {
       case "filled":

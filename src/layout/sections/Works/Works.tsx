@@ -2,7 +2,10 @@ import styled from "styled-components";
 import { WorkType } from "./WorksItem";
 import { Title } from "@/components/Title/Title";
 
-import workImg from "@/assets/img/Rectangle 14.png";
+// import workImg from "@/assets/images/Rectangle 14.png";
+import todolistImg from "@/assets/images/works/todolist.png";
+import cryptoImg from "@/assets/images/works/crypto.png";
+import sneakersImg from "@/assets/images/works/sneakers.png";
 import { FlexWrapper } from "@/components/FlexWrapper/FlexWrapper";
 import { Container } from "@/components/Container/Container";
 import { WORKS_ID } from "@/layout/Header/Header";
@@ -11,24 +14,24 @@ import { theme } from "@/styles/Theme";
 
 const works: WorkType[] = [
   {
-    img: workImg,
+    img: todolistImg,
     title: "Todolist",
-    text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et",
-    demo: "https://github.com/Endle2sCoding",
+    text: "Todolist for everyday use",
+    demo: "https://endle2scoding.github.io/portfolio/todolist",
     code: "https://github.com/Endle2sCoding/todolist",
   },
   {
-    img: workImg,
+    img: sneakersImg,
     title: "sneakers store",
-    text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do ",
-    demo: "https://github.com/Endle2sCoding",
+    text: "The sneaker store is one of the first projects at VUE",
+    demo: "https://github.com/Endle2sCoding/sneakers-store",
     code: "https://github.com/Endle2sCoding/sneakers-store",
   },
   {
-    img: workImg,
+    img: cryptoImg,
     title: "Crypto",
-    text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et ",
-    demo: "https://github.com/Endle2sCoding",
+    text: "Project to control your crypto package",
+    demo: "https://github.com/Endle2sCoding/crypto",
     code: "https://github.com/Endle2sCoding/crypto",
   },
 ];

@@ -1,4 +1,4 @@
-import bannerPhoto from "@/assets/img/bannerPhoto.jpg";
+import bannerPhoto from "@/assets/images/bannerPhoto.jpg";
 import { Container } from "@/components/Container/Container";
 
 import { HOME_ID } from "@/layout/Header/Header";

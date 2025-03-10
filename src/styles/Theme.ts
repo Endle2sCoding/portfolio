@@ -11,6 +11,10 @@ export const theme = {
   delay: {
     transitionDelay: "0.3s",
   },
+  opacity: {
+    opacityDisabled: "0.3"
+  },
+
   sizes: {
     headerHeight: "100px",
   },
@@ -41,5 +45,6 @@ export const theme = {
     notAccentedColor: "#ffffff19",
     bgGradient: `linear-gradient(to right, #579191, gray);`,
     errorColor: "#ce2b2b",
+    successColor: "#008000",
   }
 };

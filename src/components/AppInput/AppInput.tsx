@@ -1,6 +1,6 @@
 import { theme } from "@/styles/Theme";
-import { ChangeEvent, useState } from "react";
-import styled from "styled-components";
+import { ChangeEvent } from "react";
+import styled, { css } from "styled-components";
 
 export const AppInput = ({
   value,
@@ -8,22 +8,24 @@ export const AppInput = ({
   placeholder,
   as,
   error,
+  errorMessage,
   setError,
+  disabled,
 }: {
   value: string;
   placeholder: string;
   onChange: (value: string) => void;
   as?: string;
-  error?: string;
-  setError?: (value: string) => void;
+  error: string;
+  setError: (value: string) => void;
+  disabled?: boolean;
+  errorMessage: string;
 }) => {
-  const [inputError, setInputError] = useState("");
   return (
     <FieldWrapper>
-      {(error || inputError) && (
-        <ErrorMessage>{error || inputError}</ErrorMessage>
-      )}
+      <ErrorMessage $error={error}>{error}</ErrorMessage>
       <Field
+        $disabled={disabled}
         placeholder={placeholder}
         as={as}
         value={value}
@@ -32,16 +34,11 @@ export const AppInput = ({
         }}
         onBlur={(e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
           if (e.currentTarget.value === "") {
-            if (setError) {
-              setError?.("Fill in one of the fields to contac");
-            } else {
-              setInputError(`${placeholder} can not be empty`);
-            }
+            setError(error || errorMessage);
           }
         }}
         onFocus={() => {
-          setInputError("");
-          setError?.("");
+          setError("");
         }}
       ></Field>
     </FieldWrapper>
@@ -49,13 +46,14 @@ export const AppInput = ({
 };
 const FieldWrapper = styled.div`
   position: relative;
+  z-index: 1;
   width: 100%;
   textarea {
     min-height: 155px;
     resize: none;
   }
 `;
-const Field = styled.input`
+const Field = styled.input<{ $disabled?: boolean }>`
   width: 100%;
   padding: 7px 15px;
   box-sizing: border-box;
@@ -70,11 +68,25 @@ const Field = styled.input`
     outline: 1px solid ${theme.colors.accentedColorOpacity};
   }
   margin-top: 10px;
+  opacity: ${(props) =>
+    props.$disabled === true ? `${theme.opacity.opacityDisabled}` : `1`};
 `;
-const ErrorMessage = styled.div`
+const ErrorMessage = styled.div<{ $error: string }>`
   color: ${theme.colors.errorColor};
   position: absolute;
   top: -11px;
   left: 50%;
   transform: translateX(-50%);
+  transition: opacity linear ${theme.delay.transitionDelay};
+  ${(props) =>
+    props.$error === ""
+      ? css`
+          transition: opacity linear ${theme.delay.transitionDelay};
+          opacity: 0;
+        `
+      : css`
+          transition: opacity linear ${theme.delay.transitionDelay};
+          z-index: 1;
+          opacity: 1;
+        `}
 `;
