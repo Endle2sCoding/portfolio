@@ -2,6 +2,7 @@ import { AppLink } from "@/components/AppLink/AppLink";
 import { Container } from "@/components/Container/Container";
 import { FlexWrapper } from "@/components/FlexWrapper/FlexWrapper";
 import { Icon } from "@/components/Icon/Icon";
+import { useTranslation } from "react-i18next";
 
 import styled from "styled-components";
 const listIcon = [
@@ -22,6 +23,7 @@ const listIcon = [
 ];
 
 export const Footer = () => {
+  const { t } = useTranslation();
   return (
     <StyledFooter>
       <Container>
@@ -29,7 +31,7 @@ export const Footer = () => {
           directioin="column"
           align="center"
         >
-          <Name>Viacheslav</Name>
+          <Name>{t("Viacheslav")}</Name>
           <ul>
             {listIcon.map((item, i) => (
               <Item key={item.iconId + i}>
@@ -49,7 +51,7 @@ export const Footer = () => {
             ))}
           </ul>
           <Copyright>
-            © {new Date().getFullYear()}, All Rights Reserved.
+            © {new Date().getFullYear()}, {t("All Rights Reserved.")}
           </Copyright>
         </FlexWrapper>
       </Container>

@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { SkillsItem, SkillsItemType } from "./SkillsItem";
 import { Container } from "@/components/Container/Container";
 import { SKILLS_ID } from "@/layout/Header/Header";
+import { useTranslation } from "react-i18next";
 
 const skills: SkillsItemType[] = [
   {
@@ -33,6 +34,8 @@ const skills: SkillsItemType[] = [
 ];
 
 export const Skills = () => {
+  const { t } = useTranslation();
+
   return (
     <StyledSection id={`${SKILLS_ID}`}>
       <Container>
@@ -41,7 +44,7 @@ export const Skills = () => {
           directioin="column"
           align="center"
         >
-          <Title>Skills</Title>
+          <Title>{t(SKILLS_ID)}</Title>
           <FlexWrapper
             wrap="wrap"
             align="center"

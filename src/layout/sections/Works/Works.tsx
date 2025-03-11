@@ -11,6 +11,7 @@ import { Container } from "@/components/Container/Container";
 import { WORKS_ID } from "@/layout/Header/Header";
 import { Carousel } from "@/components/Slider/Slider";
 import { theme } from "@/styles/Theme";
+import { useTranslation } from "react-i18next";
 
 const works: WorkType[] = [
   {
@@ -31,11 +32,13 @@ const works: WorkType[] = [
     img: cryptoImg,
     title: "Crypto",
     text: "Project to control your crypto package",
-    demo: "https://github.com/Endle2sCoding/crypto",
+    demo: "https://endle2scoding.github.io/crypto/",
     code: "https://github.com/Endle2sCoding/crypto",
   },
 ];
 export const Works = () => {
+  const { t } = useTranslation();
+
   return (
     <WorksStyled id={`${WORKS_ID}`}>
       <Container>
@@ -44,7 +47,7 @@ export const Works = () => {
           align="center"
           justify="space-between"
         >
-          <Title>Works</Title>
+          <Title>{t(`${WORKS_ID}`)}</Title>
           <Carousel works={works} />
         </FlexWrapper>
       </Container>

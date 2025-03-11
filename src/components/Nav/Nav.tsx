@@ -23,7 +23,7 @@ export const Nav = ({
             onClick={() => setIsOpen(false)}
             key={l.title + i}
           >
-            <Link href={`#${l.title}`}>{l.title}</Link>
+            <Link href={`#${l.id}`}>{l.title}</Link>
           </Item>
         ))}
       </List>

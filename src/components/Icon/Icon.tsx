@@ -10,7 +10,7 @@ export type IconPropsType = SVGProps<SVGSVGElement> & {
   height?: string;
   viewBox?: string;
   className?: string;
-  fill?: "primary" | "secondary" | "accented";
+  colorType?: "primary" | "secondary" | "accented" | "inverted";
   variant?: "clear" | "bgCircle" | "bgSquare";
 };
 export const Icon = (props: IconPropsType) => {
@@ -19,7 +19,7 @@ export const Icon = (props: IconPropsType) => {
     width = "50",
     height = "50",
     viewBox = "0 0 50 50",
-    fill = "accented",
+    colorType = "accented",
     variant = "clear",
     className,
     ...otherProps
@@ -34,7 +34,7 @@ export const Icon = (props: IconPropsType) => {
         width={width}
         height={height}
         viewBox={viewBox}
-        $fill={fill}
+        $colorType={colorType}
       >
         <use xlinkHref={`${iconsSprite}#${iconId}`} />
       </SvgStyled>
@@ -111,17 +111,27 @@ const SvgWrapper = styled.div<{
   }}
 `;
 const SvgStyled = styled.svg<{
-  $fill: "primary" | "secondary" | "accented";
+  $colorType: "primary" | "secondary" | "accented" | "inverted";
 }>`
   ${(props) => {
-    switch (props.$fill) {
+    switch (props.$colorType) {
       case "accented":
         return css`
+          transition: all linear ${theme.delay.transitionDelay};
           fill: ${theme.colors.accentedColor};
         `;
       case "primary":
         return css`
+          transition: all linear ${theme.delay.transitionDelay};
           fill: ${theme.colors.primaryColor};
+          &:hover {
+            fill: ${theme.colors.accentedColor};
+          }
+        `;
+      case "inverted":
+        return css`
+          transition: all linear ${theme.delay.transitionDelay};
+          fill: ${theme.colors.bgSecondary};
           &:hover {
             fill: ${theme.colors.accentedColor};
           }
@@ -129,14 +139,9 @@ const SvgStyled = styled.svg<{
 
       default:
         return css`
+          transition: all linear ${theme.delay.transitionDelay};
           fill: ${theme.colors.secondaryColor};
         `;
     }
   }}
-  fill: ${(props) =>
-    props.$fill === "accented"
-      ? `${theme.colors.accentedColor}`
-      : props.$fill === "primary"
-      ? `${theme.colors.primaryColor}`
-      : `${theme.colors.secondaryColor}`};
 `;

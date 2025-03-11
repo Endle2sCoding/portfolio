@@ -6,22 +6,27 @@ import { theme } from "@/styles/Theme";
 import styled from "styled-components";
 import Typewriter from "typewriter-effect";
 import Tilt from "react-parallax-tilt";
+import { useTranslation } from "react-i18next";
 export const Banner = () => {
+  const { t } = useTranslation();
   return (
     <StyledBanner id={`${HOME_ID}`}>
       <Container>
         <ContentWrapper>
           <Content>
-            <SupTitle>Hi There</SupTitle>
+            <SupTitle>{t("Hi There")}</SupTitle>
             <Name>
-              I am <span>Viacheslav</span>
+              {t("I am")} <span>{t("Viacheslav")}</span>
             </Name>
             <MainTitle>
-              <p>A Web Developer</p>
-              <p>A Fronted Developer</p>
+              <p>{t("A Web Developer")}</p>
+              <p>{t("A Fronted Developer")}</p>
               <Typewriter
                 options={{
-                  strings: ["A Web Developer", "A Fronted Developer"],
+                  strings: [
+                    `${t("A Web Developer")}`,
+                    `${t("A Fronted Developer")}`,
+                  ],
                   autoStart: true,
                   loop: true,
                 }}

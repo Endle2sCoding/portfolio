@@ -29,6 +29,7 @@ export const AppLink = ({
 };
 
 export const StyledLink = styled(Link)<{ $variant: AppLinkVariant }>`
+  text-transform: capitalize;
   transition: opacity linear ${theme.delay.transitionDelay};
   ${(props) => {
     switch (props.$variant) {

@@ -1,5 +1,6 @@
 import { AppLink } from "@/components/AppLink/AppLink";
 import { theme } from "@/styles/Theme";
+import { useTranslation } from "react-i18next";
 
 import styled from "styled-components";
 export type WorkType = {
@@ -18,6 +19,7 @@ export type WorkType = {
 // }> = [{ imgSrc: "", title: "", desc: "", github: "", link: "" }];
 
 export const WorksItem = ({ w }: { w: WorkType }) => {
+  const { t } = useTranslation();
   return (
     <Work>
       <ImgWrapper>
@@ -26,7 +28,7 @@ export const WorksItem = ({ w }: { w: WorkType }) => {
           to={w.demo}
           variant="filled"
         >
-          {`view project`}
+          {t(`view project`)}
         </AppLink>
         <Img
           src={w.img}
@@ -34,21 +36,22 @@ export const WorksItem = ({ w }: { w: WorkType }) => {
         />
       </ImgWrapper>
       <Info>
-        <Title>{w.title}</Title>
-        <Text>{w.text}</Text>
+        <Title>{t(w.title)}</Title>
+        <Text>{t(w.text)}</Text>
         <Links>
+          <AppLink
+            target="_blank"
+            variant={"underlined"}
+            to={w.demo}
+          >
+            {t("Demo")}
+          </AppLink>
           <AppLink
             target="_blank"
             variant={"underlined"}
             to={w.code}
           >
-            Demo
-          </AppLink>
-          <AppLink
-            variant={"underlined"}
-            to={w.demo}
-          >
-            Code
+            {t("Code")}
           </AppLink>
         </Links>
       </Info>
@@ -121,4 +124,6 @@ const Title = styled.h4`
 `;
 const Text = styled.div`
   margin-bottom: 19px;
+  word-wrap: break-word;
+  word-break: break-all;
 `;

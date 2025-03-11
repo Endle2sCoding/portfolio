@@ -6,6 +6,7 @@ export const Title = ({ children }: { children: string }) => {
 };
 
 const StyledTitle = styled.h2`
+  text-transform: capitalize;
   text-align: center;
   margin-bottom: 80px;
   font-size: ${theme.fonts.fontSize4xl36};

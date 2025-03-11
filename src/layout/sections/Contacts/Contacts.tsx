@@ -7,6 +7,7 @@ import { Title } from "@/components/Title/Title";
 import { CONTACTS_ID } from "@/layout/Header/Header";
 import { theme } from "@/styles/Theme";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 
 export const Contacts = () => {
@@ -19,6 +20,8 @@ export const Contacts = () => {
   const [messageError, setMessageError] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const { t } = useTranslation();
+
   return (
     <StyledContacts id={`${CONTACTS_ID}`}>
       <Container>
@@ -26,7 +29,7 @@ export const Contacts = () => {
           directioin="column"
           align="center"
         >
-          <Title>Contact</Title>
+          <Title>{t(CONTACTS_ID)}</Title>
           <StyledForm
             onSubmit={(e) => {
               e.preventDefault();
@@ -74,7 +77,7 @@ export const Contacts = () => {
           >
             <SuccessMessage loading={loading} />
             <AppInput
-              errorMessage="Name can not be empty"
+              errorMessage={t("Name can not be empty")}
               error={nameError}
               disabled={loading}
               value={name}
@@ -82,24 +85,24 @@ export const Contacts = () => {
                 setName(value);
               }}
               setError={(value: string) => setNameError(value)}
-              placeholder="Name"
+              placeholder={t("Name")}
             />
             <FormTitle $loading={loading}>
-              Fill in one of the fields to contact
+              {t("Fill in one of the fields to contact")}
             </FormTitle>
             <AppInput
               disabled={loading}
               error={error}
-              errorMessage={"Fill in one of the fields to contact"}
+              errorMessage={t("Fill in one of the fields to contact")}
               setError={(value: string) => setError(value)}
               value={telegram}
               onChange={(value: string) => {
                 setTelegram(value);
               }}
-              placeholder="Telegram"
+              placeholder={t("Telegram")}
             />
             <AppInput
-              errorMessage={"Fill in one of the fields to contact"}
+              errorMessage={t("Fill in one of the fields to contact")}
               disabled={loading}
               error={error}
               setError={(value: string) => setError(value)}
@@ -107,10 +110,10 @@ export const Contacts = () => {
               onChange={(value: string) => {
                 setPhone(value);
               }}
-              placeholder="Phone"
+              placeholder={t("Phone")}
             />
             <AppInput
-              errorMessage={"Fill in one of the fields to contact"}
+              errorMessage={t("Fill in one of the fields to contact")}
               disabled={loading}
               error={error}
               setError={(value: string) => setError(value)}
@@ -118,11 +121,11 @@ export const Contacts = () => {
               onChange={(value: string) => {
                 setEmail(value);
               }}
-              placeholder="Email"
+              placeholder={t("Email")}
             />
 
             <AppInput
-              errorMessage={"Message can not be empty"}
+              errorMessage={t("Message can not be empty")}
               error={messageError}
               setError={(value: string) => setMessageError(value)}
               disabled={loading}
@@ -131,26 +134,26 @@ export const Contacts = () => {
               onChange={(value: string) => {
                 setMessage(value);
               }}
-              placeholder="Message"
+              placeholder={t("Message")}
             />
 
             <AppButton
               onClick={() => {
                 if (name === "") {
-                  setNameError("Name can not be empty");
+                  setNameError(t("Name can not be empty"));
                 }
                 if (message === "") {
-                  setMessageError("Message can not be empty");
+                  setMessageError(t("Message can not be empty"));
                 }
                 if (phone === "" && email === "" && telegram === "") {
-                  setError("Fill in one of the fields to contact");
+                  setError(t("Fill in one of the fields to contact"));
                 }
               }}
               disabled={loading}
               type="submit"
               variant="filled"
             >
-              send message
+              {t("send message")}
             </AppButton>
           </StyledForm>
         </FlexWrapper>

@@ -23,7 +23,7 @@ export const ScrollTop = () => {
             width="16px"
             height="16px"
             viewBox="0 0 16 16"
-            fill="primary"
+            colorType="primary"
             iconId="arrow"
           />
         </ScrollTopStyled>

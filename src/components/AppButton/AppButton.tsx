@@ -7,17 +7,23 @@ interface AppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
   variant?: AppButtonVariant;
   disabled?: boolean;
+  colorType?: "primary" | "inverted";
+  textTransform?: "uppercase" | "capitalize";
 }
 
 export const AppButton = ({
   children,
   variant = "clear",
+  textTransform = "uppercase",
   disabled,
+  colorType = "primary",
   ...otherProps
 }: AppButtonProps) => {
   return (
     <StyledAppButton
       $disabled={disabled}
+      $colorType={colorType}
+      $textTransform={textTransform}
       {...otherProps}
       $variant={variant}
     >
@@ -28,10 +34,16 @@ export const AppButton = ({
 const StyledAppButton = styled.button<{
   $variant: AppButtonVariant;
   $disabled?: boolean;
+  $colorType?: "primary" | "inverted";
+  $textTransform?: "uppercase" | "capitalize";
 }>`
   cursor: pointer;
-  text-transform: uppercase;
-  color: ${theme.colors.primaryColor};
+  text-transform: ${(props) => props.$textTransform};
+  color: ${(props) =>
+    props.$colorType === "primary"
+      ? theme.colors.primaryColor
+      : theme.colors.bgPrimary};
+
   opacity: ${(props) =>
     props.$disabled === true ? `${theme.opacity.opacityDisabled}` : `1`};
   ${(props) => {
