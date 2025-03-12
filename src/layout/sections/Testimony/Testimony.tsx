@@ -3,7 +3,7 @@ import { FlexWrapper } from "@/components/FlexWrapper/FlexWrapper";
 import { Icon } from "@/components/Icon/Icon";
 import { Title } from "@/components/Title/Title";
 import { TESTIMONY_ID } from "@/layout/Header/Header";
-import { theme } from "@/styles/Theme";
+
 import styled from "styled-components";
 const reviews = [
   {
@@ -53,7 +53,7 @@ const ListItem = styled.div`
   }
 `;
 const Name = styled.span`
-  font-style: ${theme.fonts.josefinsansSemibold};
+  font-style: ${({ theme }) => theme.fonts.josefinsansSemibold};
 `;
 const Pagination = styled.div`
   margin-top: 35px;
@@ -64,11 +64,11 @@ const Pagination = styled.div`
     height: 10px;
     border-radius: 50%;
     margin: 5px;
-    background: ${theme.colors.primaryColor};
+    background: ${({ theme }) => theme.colors.primaryColor};
 
     cursor: pointer;
     &:hover {
-      background: ${theme.colors.accentedColor};
+      background: ${({ theme }) => theme.colors.accentedColor};
     }
   }
 `;

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Icon } from "../Icon/Icon";
-import { theme } from "@/styles/Theme";
+
 import { useEffect, useState } from "react";
 import { HOME_ID } from "@/layout/Header/Header";
 
@@ -37,7 +37,7 @@ const ScrollTopStyled = styled.a`
   position: fixed;
   bottom: 20px;
   right: 20px;
-  color: ${theme.colors.primaryColor};
+  color: ${({ theme }) => theme.colors.primaryColor};
   cursor: pointer;
   padding: 8px;
 `;

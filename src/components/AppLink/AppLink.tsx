@@ -1,4 +1,3 @@
-import { theme } from "@/styles/Theme";
 import { ReactNode } from "react";
 import { Link, LinkProps } from "react-router-dom";
 import styled, { css } from "styled-components";
@@ -30,19 +29,20 @@ export const AppLink = ({
 
 export const StyledLink = styled(Link)<{ $variant: AppLinkVariant }>`
   text-transform: capitalize;
-  transition: opacity linear ${theme.delay.transitionDelay};
+  transition: opacity linear ${({ theme }) => theme.delay.transitionDelay};
   ${(props) => {
     switch (props.$variant) {
       case "filled":
         return css`
-          background: ${theme.colors.accentedColor};
+          background: ${({ theme }) => theme.colors.accentedColor};
           padding: 10px 30px;
-          border: 2px solid ${theme.colors.accentedColor};
+          border: 2px solid ${({ theme }) => theme.colors.accentedColor};
           border-radius: 1px;
-          transition: background linear ${theme.delay.transitionDelay};
+          transition: background linear
+            ${({ theme }) => theme.delay.transitionDelay};
           &:hover {
-            background: ${theme.colors.bgSecondary};
-            color: ${theme.colors.accentedColor};
+            background: ${({ theme }) => theme.colors.bgSecondary};
+            color: ${({ theme }) => theme.colors.accentedColor};
           }
         `;
       case "underlined":
@@ -53,7 +53,7 @@ export const StyledLink = styled(Link)<{ $variant: AppLinkVariant }>`
           outline: none;
           background: none;
           border: 1px solid transparent;
-          transition: all linear ${theme.delay.transitionDelay};
+          transition: all linear ${({ theme }) => theme.delay.transitionDelay};
           &:before {
             content: "";
             display: inline-block;
@@ -65,18 +65,19 @@ export const StyledLink = styled(Link)<{ $variant: AppLinkVariant }>`
             width: 100%;
             height: 10px;
 
-            transition: all linear ${theme.delay.transitionDelay};
+            transition: all linear ${({ theme }) => theme.delay.transitionDelay};
           }
           &:hover {
             &:before {
-              background: ${theme.colors.accentedColor};
+              background: ${({ theme }) => theme.colors.accentedColor};
             }
           }
         `;
 
       default:
         return css`
-          transition: opacity linear ${theme.delay.transitionDelay};
+          transition: opacity linear
+            ${({ theme }) => theme.delay.transitionDelay};
         `;
     }
   }}

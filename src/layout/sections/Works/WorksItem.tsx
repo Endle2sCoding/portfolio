@@ -1,5 +1,5 @@
 import { AppLink } from "@/components/AppLink/AppLink";
-import { theme } from "@/styles/Theme";
+
 import { useTranslation } from "react-i18next";
 
 import styled from "styled-components";
@@ -61,7 +61,7 @@ export const WorksItem = ({ w }: { w: WorkType }) => {
 const Work = styled.div`
   width: 90%;
   margin: 0 auto;
-  background: ${theme.colors.bgSecondary};
+  background: ${({ theme }) => theme.colors.bgSecondary};
 `;
 
 const ImgWrapper = styled.div`
@@ -71,9 +71,9 @@ const ImgWrapper = styled.div`
   max-height: 260px;
   cursor: pointer;
 
-  transition: opacity linear ${theme.delay.transitionDelay};
+  transition: opacity linear ${({ theme }) => theme.delay.transitionDelay};
   &:before {
-    transition: opacity linear ${theme.delay.transitionDelay};
+    transition: opacity linear ${({ theme }) => theme.delay.transitionDelay};
     content: "";
     position: absolute;
     top: 0;
@@ -86,7 +86,7 @@ const ImgWrapper = styled.div`
     opacity: 0;
   }
   a {
-    transition: opacity linear ${theme.delay.transitionDelay};
+    transition: opacity linear ${({ theme }) => theme.delay.transitionDelay};
     position: absolute;
     top: 50%;
     left: 50%;
@@ -94,12 +94,12 @@ const ImgWrapper = styled.div`
     opacity: 0;
   }
   &:hover {
-    transition: opacity linear ${theme.delay.transitionDelay};
+    transition: opacity linear ${({ theme }) => theme.delay.transitionDelay};
     &:before {
       opacity: 1;
     }
     a {
-      transition: opacity linear ${theme.delay.transitionDelay};
+      transition: opacity linear ${({ theme }) => theme.delay.transitionDelay};
       opacity: 1;
     }
   }

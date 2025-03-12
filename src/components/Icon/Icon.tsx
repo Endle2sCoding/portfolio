@@ -2,7 +2,6 @@ import styled, { css } from "styled-components";
 import iconsSprite from "../../assets/svg/iconsSprite.svg";
 
 import { SVGProps } from "react";
-import { theme } from "@/styles/Theme";
 
 export type IconPropsType = SVGProps<SVGSVGElement> & {
   iconId: string;
@@ -52,9 +51,9 @@ const SvgWrapper = styled.div<{
           position: relative;
           z-index: 0;
           padding: 8px 10px 6px;
-          transition: all linear ${theme.delay.transitionDelay};
+          transition: all linear ${({ theme }) => theme.delay.transitionDelay};
           svg {
-            transition: all linear ${theme.delay.transitionDelay};
+            transition: all linear ${({ theme }) => theme.delay.transitionDelay};
           }
           &:before {
             border-radius: 50%;
@@ -65,17 +64,17 @@ const SvgWrapper = styled.div<{
             bottom: 0;
             right: 0;
             left: 0;
-            background: ${theme.colors.bgSecondary};
-            transition: all linear ${theme.delay.transitionDelay};
+            background: ${({ theme }) => theme.colors.bgSecondary};
+            transition: all linear ${({ theme }) => theme.delay.transitionDelay};
           }
           &:hover {
             &:before {
               transform: translateY(-4px);
-              background: ${theme.colors.accentedColor};
+              background: ${({ theme }) => theme.colors.accentedColor};
             }
             svg {
               transform: translateY(-4px);
-              fill: ${theme.colors.bgPrimary};
+              fill: ${({ theme }) => theme.colors.bgPrimary};
             }
           }
         `;
@@ -94,12 +93,12 @@ const SvgWrapper = styled.div<{
             left: 50%;
             transform: rotate(45deg) translate3d(-50%, -50%, 0);
             content: "";
-            background: ${theme.colors.notAccentedColor};
+            background: ${({ theme }) => theme.colors.notAccentedColor};
             &:hover {
               transform: translateY(-4px);
-              background: ${theme.colors.accentedColor};
+              background: ${({ theme }) => theme.colors.accentedColor};
               svg {
-                fill: ${theme.colors.bgPrimary};
+                fill: ${({ theme }) => theme.colors.bgPrimary};
               }
             }
           }
@@ -117,30 +116,30 @@ const SvgStyled = styled.svg<{
     switch (props.$colorType) {
       case "accented":
         return css`
-          transition: all linear ${theme.delay.transitionDelay};
-          fill: ${theme.colors.accentedColor};
+          transition: all linear ${({ theme }) => theme.delay.transitionDelay};
+          fill: ${({ theme }) => theme.colors.accentedColor};
         `;
       case "primary":
         return css`
-          transition: all linear ${theme.delay.transitionDelay};
-          fill: ${theme.colors.primaryColor};
+          transition: all linear ${({ theme }) => theme.delay.transitionDelay};
+          fill: ${({ theme }) => theme.colors.primaryColor};
           &:hover {
-            fill: ${theme.colors.accentedColor};
+            fill: ${({ theme }) => theme.colors.accentedColor};
           }
         `;
       case "inverted":
         return css`
-          transition: all linear ${theme.delay.transitionDelay};
-          fill: ${theme.colors.bgSecondary};
+          transition: all linear ${({ theme }) => theme.delay.transitionDelay};
+          fill: ${({ theme }) => theme.colors.bgSecondary};
           &:hover {
-            fill: ${theme.colors.accentedColor};
+            fill: ${({ theme }) => theme.colors.accentedColor};
           }
         `;
 
       default:
         return css`
-          transition: all linear ${theme.delay.transitionDelay};
-          fill: ${theme.colors.secondaryColor};
+          transition: all linear ${({ theme }) => theme.delay.transitionDelay};
+          fill: ${({ theme }) => theme.colors.secondaryColor};
         `;
     }
   }}

@@ -2,7 +2,7 @@ import { Container } from "@/components/Container/Container";
 import { FlexWrapper } from "@/components/FlexWrapper/FlexWrapper";
 import { Logo } from "@/components/Logo/Logo";
 import { Nav } from "@/components/Nav/Nav";
-import { theme } from "@/styles/Theme";
+
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import styled, { css } from "styled-components";
@@ -54,14 +54,14 @@ const StyledHeader = styled.header`
   top: 0;
   left: 0;
   right: 0;
-  background: ${theme.colors.bgPrimary};
+  background: ${({ theme }) => theme.colors.bgPrimary};
   opacity: 0.99;
   z-index: 1000;
-  height: ${theme.sizes.headerHeight};
+  height: ${({ theme }) => theme.sizes.headerHeight};
 `;
 const Burger = styled.span<{ $isOpen: boolean }>`
   display: none;
-  @media ${theme.media.tablet} {
+  @media ${({ theme }) => theme.media.tablet} {
     display: block;
     position: ${(props) => props.$isOpen && "fixed"};
     z-index: ${(props) => props.$isOpen && "10001"};
@@ -80,55 +80,59 @@ const Burger = styled.span<{ $isOpen: boolean }>`
             background: none;
 
             &::before {
-              transition: all linear ${theme.delay.transitionDelay};
+              transition: all linear
+                ${({ theme }) => theme.delay.transitionDelay};
               transform: rotate(-45deg);
               position: absolute;
               content: "";
               display: block;
               width: 30px;
               height: 4px;
-              background: ${theme.colors.primaryColor};
+              background: ${({ theme }) => theme.colors.primaryColor};
             }
             &::after {
-              transition: all linear ${theme.delay.transitionDelay};
+              transition: all linear
+                ${({ theme }) => theme.delay.transitionDelay};
               transform: rotate(45deg);
               position: absolute;
               content: "";
               display: block;
               width: 30px;
               height: 4px;
-              background: ${theme.colors.primaryColor};
+              background: ${({ theme }) => theme.colors.primaryColor};
             }
           }
         `;
       case false:
         return css`
           span {
-            transition: all linear ${theme.delay.transitionDelay};
+            transition: all linear ${({ theme }) => theme.delay.transitionDelay};
             position: relative;
             display: block;
             width: 30px;
             height: 4px;
-            background: ${theme.colors.primaryColor};
+            background: ${({ theme }) => theme.colors.primaryColor};
             &::before {
-              transition: all linear ${theme.delay.transitionDelay};
+              transition: all linear
+                ${({ theme }) => theme.delay.transitionDelay};
               position: absolute;
               top: -10px;
               content: "";
               display: block;
               width: 30px;
               height: 4px;
-              background: ${theme.colors.primaryColor};
+              background: ${({ theme }) => theme.colors.primaryColor};
             }
             &::after {
-              transition: all linear ${theme.delay.transitionDelay};
+              transition: all linear
+                ${({ theme }) => theme.delay.transitionDelay};
               position: absolute;
               top: 10px;
               content: "";
               display: block;
               width: 30px;
               height: 4px;
-              background: ${theme.colors.primaryColor};
+              background: ${({ theme }) => theme.colors.primaryColor};
             }
           }
         `;

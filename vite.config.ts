@@ -13,5 +13,10 @@ export default defineConfig({
   server: {
     port: 3100
   },
+  define: {
+    global: {
+      __IS__DEV__: true
+    }
+  },
   //  base: "/portfolio"
 });

@@ -10,7 +10,7 @@ import { FlexWrapper } from "@/components/FlexWrapper/FlexWrapper";
 import { Container } from "@/components/Container/Container";
 import { WORKS_ID } from "@/layout/Header/Header";
 import { Carousel } from "@/components/Slider/Slider";
-import { theme } from "@/styles/Theme";
+
 import { useTranslation } from "react-i18next";
 
 const works: WorkType[] = [
@@ -62,13 +62,13 @@ const WorksStyled = styled.section`
   }
   .alice-carousel__dots-item {
     padding: 7px;
-    transition: all linear ${theme.delay.transitionDelay};
+    transition: all linear ${({ theme }) => theme.delay.transitionDelay};
     &:hover {
-      background: ${theme.colors.accentedColor};
+      background: ${({ theme }) => theme.colors.accentedColor};
     }
   }
   .alice-carousel__dots-item:not(.__custom).__active {
-    background: ${theme.colors.accentedColor};
+    background: ${({ theme }) => theme.colors.accentedColor};
   }
   .alice-carousel__dots-item:not(.__custom).__active {
     height: 14px;

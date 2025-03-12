@@ -1,5 +1,5 @@
 import { Icon } from "@/components/Icon/Icon";
-import { theme } from "@/styles/Theme";
+
 import styled from "styled-components";
 
 export type SkillsItemType = {
@@ -28,13 +28,13 @@ const Skill = styled.div`
   margin-bottom: 40px;
   span {
     margin-top: 30px;
-    font-family: ${theme.fonts.josefinsansBold};
+    font-family: ${({ theme }) => theme.fonts.josefinsansBold};
   }
-  @media ${theme.media.laptop} {
+  @media ${({ theme }) => theme.media.laptop} {
     width: calc(100% / 2);
   }
 
-  @media ${theme.media.portraitTablets} {
+  @media ${({ theme }) => theme.media.portraitTablets} {
     .icon {
       &:before {
         position: absolute;
@@ -47,7 +47,7 @@ const Skill = styled.div`
       }
     }
     span {
-      font-size: ${theme.fonts.fontSizeXs12};
+      font-size: ${({ theme }) => theme.fonts.fontSizeXs12};
     }
   }
 `;

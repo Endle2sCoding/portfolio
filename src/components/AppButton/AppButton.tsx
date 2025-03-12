@@ -1,8 +1,7 @@
-import { theme } from "@/styles/Theme";
 import { ButtonHTMLAttributes, ReactNode } from "react";
 import styled, { css } from "styled-components";
 
-type AppButtonVariant = "clear" | "filled" | "underlined";
+type AppButtonVariant = "clear" | "filled" | "theme" | "underlined";
 interface AppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
   variant?: AppButtonVariant;
@@ -41,23 +40,39 @@ const StyledAppButton = styled.button<{
   text-transform: ${(props) => props.$textTransform};
   color: ${(props) =>
     props.$colorType === "primary"
-      ? theme.colors.primaryColor
-      : theme.colors.bgPrimary};
+      ? ({ theme }) => theme.colors.primaryColor
+      : ({ theme }) => theme.colors.bgPrimary};
 
   opacity: ${(props) =>
-    props.$disabled === true ? `${theme.opacity.opacityDisabled}` : `1`};
+    props.$disabled === true
+      ? ({ theme }) => theme.opacity.opacityDisabled
+      : `1`};
   ${(props) => {
     switch (props.$variant) {
       case "filled":
         return css`
-          background: ${theme.colors.accentedColor};
+          background: ${({ theme }) => theme.colors.accentedColor};
           padding: 10px 30px;
-          border: 2px solid ${theme.colors.accentedColor};
+          border: 2px solid ${({ theme }) => theme.colors.accentedColor};
           border-radius: 1px;
-          transition: background linear ${theme.delay.transitionDelay};
+          transition: all linear ${({ theme }) => theme.delay.transitionDelay};
           &:hover {
-            background: ${theme.colors.bgSecondary};
-            color: ${theme.colors.accentedColor};
+            transition: all linear ${({ theme }) => theme.delay.transitionDelay};
+            background: ${({ theme }) => theme.colors.bgSecondary};
+            color: ${({ theme }) => theme.colors.accentedColor};
+          }
+        `;
+      case "theme":
+        return css`
+          background: ${({ theme }) => theme.colors.bgPrimary};
+          padding: 11px;
+          border-radius: 50%;
+          border: 2px solid ${({ theme }) => theme.colors.bgPrimary};
+          transition: all linear ${({ theme }) => theme.delay.transitionDelay};
+          &:hover {
+            color: ${({ theme }) => theme.colors.accentedColor};
+            border: 2px solid ${({ theme }) => theme.colors.accentedColor};
+            background: ${({ theme }) => theme.colors.primaryColor};
           }
         `;
       case "underlined": {
@@ -68,7 +83,7 @@ const StyledAppButton = styled.button<{
           outline: none;
           background: none;
           border: 1px solid transparent;
-          transition: all linear ${theme.delay.transitionDelay};
+          transition: all linear ${({ theme }) => theme.delay.transitionDelay};
           &:before {
             content: "";
             display: inline-block;
@@ -80,11 +95,11 @@ const StyledAppButton = styled.button<{
             width: 100%;
             height: 10px;
 
-            transition: all linear ${theme.delay.transitionDelay};
+            transition: all linear ${({ theme }) => theme.delay.transitionDelay};
           }
           &:hover {
             &:before {
-              background: ${theme.colors.accentedColor};
+              background: ${({ theme }) => theme.colors.accentedColor};
             }
           }
         `;
@@ -95,9 +110,9 @@ const StyledAppButton = styled.button<{
           margin: 0 auto;
           background: none;
           border: none;
-          transition: color linear ${theme.delay.transitionDelay};
+          transition: color linear ${({ theme }) => theme.delay.transitionDelay};
           &:hover {
-            color: ${theme.colors.accentedColor};
+            color: ${({ theme }) => theme.colors.accentedColor};
           }
         `;
     }

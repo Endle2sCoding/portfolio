@@ -1,4 +1,3 @@
-import { theme } from "@/styles/Theme";
 import styled, { css } from "styled-components";
 
 export const Nav = ({
@@ -31,11 +30,11 @@ export const Nav = ({
   );
 };
 const StyledNav = styled.nav<{ $isOpen: boolean }>`
-  transition: all linear ${theme.delay.transitionDelay};
-  @media ${theme.media.tablet} {
+  transition: all linear ${({ theme }) => theme.delay.transitionDelay};
+  @media ${({ theme }) => theme.media.tablet} {
     display: "flex";
     position: fixed;
-    transition: all linear ${theme.delay.transitionDelay};
+    transition: all linear ${({ theme }) => theme.delay.transitionDelay};
     z-index: 10000;
     left: 0;
     right: 0;
@@ -46,10 +45,10 @@ const StyledNav = styled.nav<{ $isOpen: boolean }>`
       props.$isOpen
         ? css`
             transform: translateY(0);
-            transition: all linear ${theme.delay.transitionDelay};
+            transition: all linear ${({ theme }) => theme.delay.transitionDelay};
           `
         : css`
-            transition: all linear ${theme.delay.transitionDelay};
+            transition: all linear ${({ theme }) => theme.delay.transitionDelay};
           `}
   }
 `;
@@ -58,35 +57,35 @@ const List = styled.ul<{ $isOpen: boolean }>`
   justify-content: space-between;
   align-content: center;
   text-transform: capitalize;
-  @media ${theme.media.tablet} {
+  @media ${({ theme }) => theme.media.tablet} {
     width: 100%;
     height: 100%;
-    background: ${theme.colors.bgSecondary};
+    background: ${({ theme }) => theme.colors.bgSecondary};
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
   }
 `;
 const Item = styled.li`
-  @media ${theme.media.tablet} {
+  @media ${({ theme }) => theme.media.tablet} {
     width: 80%;
     text-align: center;
     height: calc(100vh / 12);
   }
-  @media ${theme.media.tablet} {
+  @media ${({ theme }) => theme.media.tablet} {
     width: 70%;
   }
 `;
 const Link = styled.a`
   padding: 10px 20px;
-  font-family: ${theme.fonts.josefinsansMedium};
-  font-size: ${theme.fonts.fontSizeXl24};
-  color: ${theme.colors.primaryColor};
-  transition: color linear ${theme.delay.transitionDelay};
+  font-family: ${({ theme }) => theme.fonts.josefinsansMedium};
+  font-size: ${({ theme }) => theme.fonts.fontSizeXl24};
+  color: ${({ theme }) => theme.colors.primaryColor};
+  transition: color linear ${({ theme }) => theme.delay.transitionDelay};
   &:hover {
-    color: ${theme.colors.accentedColor};
+    color: ${({ theme }) => theme.colors.accentedColor};
   }
-  @media ${theme.media.tablet} {
+  @media ${({ theme }) => theme.media.tablet} {
     padding: 20px 40px;
     display: flex;
     align-content: center;

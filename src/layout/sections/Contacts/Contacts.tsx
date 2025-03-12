@@ -5,7 +5,7 @@ import { FlexWrapper } from "@/components/FlexWrapper/FlexWrapper";
 import { SuccessMessage } from "@/components/SuccessMessage/SuccessMessage";
 import { Title } from "@/components/Title/Title";
 import { CONTACTS_ID } from "@/layout/Header/Header";
-import { theme } from "@/styles/Theme";
+
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
@@ -175,5 +175,7 @@ const StyledForm = styled.form`
 const FormTitle = styled.h4<{ $loading?: boolean }>`
   margin-top: 30px;
   opacity: ${(props) =>
-    props.$loading === true ? `${theme.opacity.opacityDisabled}` : `1`};
+    props.$loading === true
+      ? `${({ theme }) => theme.opacity.opacityDisabled}`
+      : `1`};
 `;

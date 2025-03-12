@@ -1,4 +1,3 @@
-import { theme } from "@/styles/Theme";
 import { ChangeEvent } from "react";
 import styled, { css } from "styled-components";
 
@@ -58,34 +57,38 @@ const Field = styled.input<{ $disabled?: boolean }>`
   padding: 7px 15px;
   box-sizing: border-box;
   border: 1px solid rgb(74, 74, 74);
-  background: ${theme.colors.bgSecondary};
-  color: ${theme.colors.primaryColor};
+  background: ${({ theme }) => theme.colors.bgSecondary};
+  color: ${({ theme }) => theme.colors.primaryColor};
   outline: none;
   overflow-y: auto;
   word-break: break-all;
   font-family: inherit;
   &:focus-visible {
-    outline: 1px solid ${theme.colors.accentedColorOpacity};
+    outline: 1px solid ${({ theme }) => theme.colors.accentedColorOpacity};
   }
   margin-top: 10px;
   opacity: ${(props) =>
-    props.$disabled === true ? `${theme.opacity.opacityDisabled}` : `1`};
+    props.$disabled === true
+      ? `${({ theme }) => theme.opacity.opacityDisabled}`
+      : `1`};
 `;
 const ErrorMessage = styled.div<{ $error: string }>`
-  color: ${theme.colors.errorColor};
+  color: ${({ theme }) => theme.colors.errorColor};
   position: absolute;
   top: -11px;
   left: 50%;
   transform: translateX(-50%);
-  transition: opacity linear ${theme.delay.transitionDelay};
+  transition: opacity linear ${({ theme }) => theme.delay.transitionDelay};
   ${(props) =>
     props.$error === ""
       ? css`
-          transition: opacity linear ${theme.delay.transitionDelay};
+          transition: opacity linear
+            ${({ theme }) => theme.delay.transitionDelay};
           opacity: 0;
         `
       : css`
-          transition: opacity linear ${theme.delay.transitionDelay};
+          transition: opacity linear
+            ${({ theme }) => theme.delay.transitionDelay};
           z-index: 1;
           opacity: 1;
         `}

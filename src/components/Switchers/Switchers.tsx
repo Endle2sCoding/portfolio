@@ -1,26 +1,26 @@
 import styled from "styled-components";
-import ThemeSwitcher from "./ThemeSwitcher";
+
 import { LangaugeSwitcher } from "./LangaugeSwitcher";
-import { theme } from "@/styles/Theme";
+import ThemeDarkSwitcher from "./ThemeSwitcher";
 
 export function Switchers() {
   return (
     <SwitchersStyled>
       <LangaugeSwitcher />
-      {/* <ThemeSwitcher /> */}
+      <ThemeDarkSwitcher />
     </SwitchersStyled>
   );
 }
 const SwitchersStyled = styled.div`
   position: fixed;
-  bottom: 25px;
-  left: 25px;
+  bottom: 10px;
+  left: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 20px 10px 10px;
   gap: 20px;
-  padding: 15px 10px;
-  background: ${theme.colors.primaryColor};
-  color: ${theme.colors.bgPrimary};
+  background: ${({ theme }) => theme.colors.primaryColor};
+  color: ${({ theme }) => theme.colors.bgPrimary};
   border-radius: 25px;
 `;

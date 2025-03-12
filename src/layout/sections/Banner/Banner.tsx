@@ -2,7 +2,7 @@ import bannerPhoto from "@/assets/images/bannerPhoto.jpg";
 import { Container } from "@/components/Container/Container";
 
 import { HOME_ID } from "@/layout/Header/Header";
-import { theme } from "@/styles/Theme";
+
 import styled from "styled-components";
 import Typewriter from "typewriter-effect";
 import Tilt from "react-parallax-tilt";
@@ -59,11 +59,11 @@ const StyledBanner = styled.section`
   min-height: 60vh;
   display: flex;
   align-items: center;
-  @media ${theme.media.tablet} {
+  @media ${({ theme }) => theme.media.tablet} {
     div {
       flex-direction: column;
     }
-    @media ${theme.media.eReaders} {
+    @media ${({ theme }) => theme.media.eReaders} {
       padding-bottom: 100px;
     }
   }
@@ -73,7 +73,7 @@ const ContentWrapper = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  @media ${theme.media.tablet} {
+  @media ${({ theme }) => theme.media.tablet} {
     flex-direction: column;
     justify-content: center;
     gap: 65px;
@@ -95,9 +95,9 @@ const PhotoWrapper = styled.div`
     height: 470px;
     left: 24px;
     top: -20px;
-    border: 5px solid ${theme.colors.accentedColor};
+    border: 5px solid ${({ theme }) => theme.colors.accentedColor};
   }
-  @media ${theme.media.laptop} {
+  @media ${({ theme }) => theme.media.laptop} {
     width: 300px;
     height: 380px;
     &::before {
@@ -105,7 +105,7 @@ const PhotoWrapper = styled.div`
       height: 420px;
     }
   }
-  @media ${theme.media.eReaders} {
+  @media ${({ theme }) => theme.media.eReaders} {
     width: 280px;
     height: 360px;
     &::before {
@@ -113,7 +113,7 @@ const PhotoWrapper = styled.div`
       height: 400px;
     }
   }
-  @media ${theme.media.smartphone} {
+  @media ${({ theme }) => theme.media.smartphone} {
     width: 240px;
     height: 320px;
     &::before {
@@ -132,19 +132,19 @@ const Photo = styled.img`
   right: 0;
   bottom: 0;
   z-index: 1;
-  @media ${theme.media.laptop} {
+  @media ${({ theme }) => theme.media.laptop} {
     width: 300px;
     height: 380px;
   }
-  @media ${theme.media.eReaders} {
+  @media ${({ theme }) => theme.media.eReaders} {
     width: 280px;
     height: 360px;
   }
-  @media ${theme.media.eReaders} {
+  @media ${({ theme }) => theme.media.eReaders} {
     width: 280px;
     height: 360px;
   }
-  @media ${theme.media.smartphone} {
+  @media ${({ theme }) => theme.media.smartphone} {
     width: 240px;
     height: 320px;
   }
@@ -157,8 +157,8 @@ const SupTitle = styled.h4`
 `;
 
 const Name = styled.h2`
-  font-size: ${theme.fonts.fontSize6xl48};
-  font-family: ${theme.fonts.josefinsansBold};
+  font-size: ${({ theme }) => theme.fonts.fontSize6xl48};
+  font-family: ${({ theme }) => theme.fonts.josefinsansBold};
   letter-spacing: 5%;
   margin: 10px 0;
   span {
@@ -171,15 +171,15 @@ const Name = styled.h2`
       bottom: 4px;
       width: 100%;
       height: 12px;
-      background: ${theme.colors.bgGradient};
+      background: ${({ theme }) => theme.colors.bgGradient};
     }
   }
 
-  @media ${theme.media.laptop} {
-    font-size: ${theme.fonts.fontSize5xl40};
+  @media ${({ theme }) => theme.media.laptop} {
+    font-size: ${({ theme }) => theme.fonts.fontSize5xl40};
   }
-  @media ${theme.media.smartphone} {
-    font-size: ${theme.fonts.fontSize4xl36};
+  @media ${({ theme }) => theme.media.smartphone} {
+    font-size: ${({ theme }) => theme.fonts.fontSize4xl36};
   }
 `;
 
@@ -187,15 +187,15 @@ const MainTitle = styled.h1`
   p {
     display: none;
   }
-  font-size: ${theme.fonts.fontSize2xl28};
+  font-size: ${({ theme }) => theme.fonts.fontSize2xl28};
   text-align: left;
   color: transparent;
 
-  background: ${theme.colors.bgGradient};
+  background: ${({ theme }) => theme.colors.bgGradient};
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  @media ${theme.media.smartphone} {
-    font-size: ${theme.fonts.fontSizeXl24};
+  @media ${({ theme }) => theme.media.smartphone} {
+    font-size: ${({ theme }) => theme.fonts.fontSizeXl24};
   }
 `;

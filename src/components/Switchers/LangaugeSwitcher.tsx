@@ -5,8 +5,7 @@ export function LangaugeSwitcher() {
 
   return (
     <AppButton
-      style={{ letterSpacing: "1.5px" }}
-      colorType={"inverted"}
+      variant="theme"
       onClick={() => {
         i18n.changeLanguage(i18n.language === "en" ? "ru" : "en");
       }}
