@@ -1,4 +1,4 @@
-import { ITheme, ThemeEnum } from "./theme";
+import { ITheme, ThemeEnum } from "./ThemeTypes.ts";
 
 declare module 'styled-components' {
   export interface DefaultTheme extends ITheme {

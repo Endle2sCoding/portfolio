@@ -1,4 +1,4 @@
-import { ITheme } from "./theme";
+import { ITheme } from "./ThemeTypes";
 
 export const BaseTheme: ITheme = {
   media: {

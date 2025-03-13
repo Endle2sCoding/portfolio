@@ -1,6 +1,6 @@
 import { DefaultTheme } from "styled-components";
 import { BaseTheme } from "./BaseTheme";
-import { ThemeEnum } from "./theme";
+import { ThemeEnum } from "./ThemeTypes.ts";
 
 export const ThemeLight: DefaultTheme = {
   type: ThemeEnum.light,

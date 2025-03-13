@@ -13,11 +13,10 @@ interface ThemeContextProps {
 const ThemeContext = createContext<ThemeContextProps>({});
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-
   const [theme, setTheme] = useState(ThemeDark);
   const changeTheme = () =>
     setTheme(theme.type === "dark" ? ThemeLight : ThemeDark);
-  
+
   return (
     <ThemeContext.Provider value={{ theme: theme, changeTheme: changeTheme }}>
       <StyledProvider theme={theme}>{children}</StyledProvider>
