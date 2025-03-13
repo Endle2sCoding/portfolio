@@ -8,7 +8,7 @@ import { Footer } from "./layout/Footer/Footer";
 import { GlobalStyles } from "./styles/Global.styled";
 import { ScrollTop } from "./components/ScrollTop/ScrollTop";
 import { Particle } from "./components/Particle/Particle";
-import { Switchers } from "./components/Switchers/Switchers";
+
 import { Suspense } from "react";
 import { ThemeProvider } from "./styles/ThemeContext";
 import { PageLoader } from "./widgets/PageLoader/PageLoader";
@@ -28,7 +28,6 @@ function App() {
           <Contacts />
           <Footer />
           <ScrollTop />
-          <Switchers />
         </ThemeProvider>
       </Suspense>
     </div>

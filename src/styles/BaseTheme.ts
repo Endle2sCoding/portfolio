@@ -1,4 +1,4 @@
-import { ITheme } from "./Theme";
+import { ITheme } from "./theme";
 
 export const BaseTheme: ITheme = {
   media: {
@@ -37,16 +37,5 @@ export const BaseTheme: ITheme = {
     fontSize6xl48: "48px",
 
   },
-  colors: {
-    bgPrimary: "rgb(31, 31, 32)",
-    bgSecondary: "rgb(37, 37, 39)",
-    primaryColor: "#fff",
-    secondaryColor: "#eee",
-    accentedColor: "#579191",
-    accentedColorOpacity: "#57919170",
-    notAccentedColor: "#ffffff19",
-    bgGradient: `linear-gradient(to right, #579191, gray);`,
-    errorColor: "#ce2b2b",
-    successColor: "#008000",
-  }
+
 };

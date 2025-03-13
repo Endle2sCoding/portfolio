@@ -176,6 +176,6 @@ const FormTitle = styled.h4<{ $loading?: boolean }>`
   margin-top: 30px;
   opacity: ${(props) =>
     props.$loading === true
-      ? `${({ theme }) => theme.opacity.opacityDisabled}`
+      ? ({ theme }) => theme.opacity.opacityDisabled
       : `1`};
 `;

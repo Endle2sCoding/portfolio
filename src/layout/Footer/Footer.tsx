@@ -69,7 +69,7 @@ const StyledFooter = styled.footer`
 const Name = styled.span``;
 const Item = styled.li``;
 const Copyright = styled.p`
-  color: rgba(255, 255, 255, 0.5);
+  color: ${({ theme }) => theme.colors.notAccentedColor};
   font-size: 12px;
   line-height: 18px;
   letter-spacing: 0%;

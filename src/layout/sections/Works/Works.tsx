@@ -18,7 +18,8 @@ const works: WorkType[] = [
     img: todolistImg,
     title: "Todolist",
     text: "Todolist for everyday use",
-    demo: "https://endle2scoding.github.io/portfolio/todolist",
+    // demo: "https://endle2scoding.github.io/portfolio/todolist",
+    demo: "https://github.com/Endle2sCoding/todolist",
     code: "https://github.com/Endle2sCoding/todolist",
   },
   {
@@ -32,7 +33,7 @@ const works: WorkType[] = [
     img: cryptoImg,
     title: "Crypto",
     text: "Project to control your crypto package",
-    demo: "https://endle2scoding.github.io/crypto/",
+    demo: "https://crypto-xi-rust.vercel.app/",
     code: "https://github.com/Endle2sCoding/crypto",
   },
 ];

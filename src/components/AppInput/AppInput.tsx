@@ -69,7 +69,7 @@ const Field = styled.input<{ $disabled?: boolean }>`
   margin-top: 10px;
   opacity: ${(props) =>
     props.$disabled === true
-      ? `${({ theme }) => theme.opacity.opacityDisabled}`
+      ? ({ theme }) => theme.opacity.opacityDisabled
       : `1`};
 `;
 const ErrorMessage = styled.div<{ $error: string }>`

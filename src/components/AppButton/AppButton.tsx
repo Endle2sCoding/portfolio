@@ -64,7 +64,8 @@ const StyledAppButton = styled.button<{
         `;
       case "theme":
         return css`
-          background: ${({ theme }) => theme.colors.bgPrimary};
+          background: ${({ theme }) => theme.colors.accentedColor};
+          color: ${({ theme }) => theme.colors.primaryColor};
           padding: 11px;
           border-radius: 50%;
           border: 2px solid ${({ theme }) => theme.colors.bgPrimary};
@@ -72,7 +73,7 @@ const StyledAppButton = styled.button<{
           &:hover {
             color: ${({ theme }) => theme.colors.accentedColor};
             border: 2px solid ${({ theme }) => theme.colors.accentedColor};
-            background: ${({ theme }) => theme.colors.primaryColor};
+            background: ${({ theme }) => theme.colors.bgPrimary};
           }
         `;
       case "underlined": {

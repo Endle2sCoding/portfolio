@@ -7,7 +7,7 @@ export default function ThemeDarkSwitcher() {
   return (
     <AppButton onClick={changeTheme}>
       <Icon
-        colorType="inverted"
+        colorType="primary"
         iconId="themeDark"
         width="30"
         height="30"

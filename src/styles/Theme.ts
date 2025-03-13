@@ -3,8 +3,6 @@ export enum ThemeEnum {
   dark = "dark",
 }
 export interface ITheme {
-
-
   media: {
     bigdesctop: string,
     desctop: string,
@@ -41,16 +39,5 @@ export interface ITheme {
     fontSize6xl48: string,
 
   },
-  colors: {
-    bgPrimary: string,
-    bgSecondary: string,
-    primaryColor: string,
-    secondaryColor: string,
-    accentedColor: string,
-    accentedColorOpacity: string,
-    notAccentedColor: string,
-    bgGradient: string,
-    errorColor: string,
-    successColor: string,
-  };
+
 }

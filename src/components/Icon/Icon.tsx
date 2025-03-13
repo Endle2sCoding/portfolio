@@ -93,7 +93,7 @@ const SvgWrapper = styled.div<{
             left: 50%;
             transform: rotate(45deg) translate3d(-50%, -50%, 0);
             content: "";
-            background: ${({ theme }) => theme.colors.notAccentedColor};
+            background: ${({ theme }) => theme.colors.bgNotAccented};
             &:hover {
               transform: translateY(-4px);
               background: ${({ theme }) => theme.colors.accentedColor};

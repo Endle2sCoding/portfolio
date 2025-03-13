@@ -3,7 +3,7 @@ import { createGlobalStyle } from "styled-components";
 export const GlobalStyles = createGlobalStyle`
 @font-face {
   font-family: "Poppins-Medium";
-  src: local("Poppins-Medium"), url(./src/assets/fonts/Poppins-Medium.eot?) format("eot"), url(./src/assets/fonts/Poppins-Medium.woff2) format("woff2"), url(./src/assets/fonts/Poppins-Medium.ttf) format("truetype");
+  src: local("Poppins-Medium"), url(../src/assets/fonts/Poppins-Medium.eot?) format("eot"), url(../src/assets/fonts/Poppins-Medium.woff2) format("woff2"), url(../src/assets/fonts/Poppins-Medium.ttf) format("truetype");
   font-weight: 400;
   font-style: normal;
 }
@@ -12,7 +12,7 @@ export const GlobalStyles = createGlobalStyle`
   font-family: "JosefinSans-Medium";
   src:
     local("JosefinSans-Medium"),
-    url(./src/assets/fonts/JosefinSans-Medium.eot?) format("eot"), url(./src/assets/fonts/JosefinSans-Medium.woff2) format("woff2"), url(./src/assets/fonts/JosefinSans-Medium.ttf) format("truetype");
+    url(../src/assets/fonts/JosefinSans-Medium.eot?) format("eot"), url(../src/assets/fonts/JosefinSans-Medium.woff2) format("woff2"), url(../src/assets/fonts/JosefinSans-Medium.ttf) format("truetype");
   font-weight: 400;
   font-style: normal;
 }
@@ -20,7 +20,7 @@ export const GlobalStyles = createGlobalStyle`
 @font-face {
   font-family: "JosefinSans-Bold";
   src:
-    local("JosefinSans-Bold"), url(./src/assets/fonts/JosefinSans-Bold.eot?) format("eot"), url(./src/assets/fonts/JosefinSans-Bold.woff2) format("woff2"), url(./src/assets/fonts/JosefinSans-Bold.ttf) format("truetype");
+    local("JosefinSans-Bold"), url(../src/assets/fonts/JosefinSans-Bold.eot?) format("eot"), url(../src/assets/fonts/JosefinSans-Bold.woff2) format("woff2"), url(../src/assets/fonts/JosefinSans-Bold.ttf) format("truetype");
   font-weight: 700;
   font-style: normal;
 }
@@ -28,7 +28,7 @@ export const GlobalStyles = createGlobalStyle`
 @font-face {
   font-family: "JosefinSans-SemiBold";
   src:
-    local("JosefinSans-SemiBold"), url(./src/assets/fonts/JosefinSans-SemiBold.eot?) format("eot"), url(./src/assets/fonts/JosefinSans-SemiBold.woff2) format("woff2"), url(./src/assets/fonts/JosefinSans-SemiBold.ttf) format("truetype");
+    local("JosefinSans-SemiBold"), url(../src/assets/fonts/JosefinSans-SemiBold.eot?) format("eot"), url(../src/assets/fonts/JosefinSans-SemiBold.woff2) format("woff2"), url(../src/assets/fonts/JosefinSans-SemiBold.ttf) format("truetype");
   font-weight: 600;
   font-style: normal;
 }

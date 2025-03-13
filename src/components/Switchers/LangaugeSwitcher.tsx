@@ -1,4 +1,4 @@
-import { AppButton } from "../AppButton/AppButton";
+import { AppButton } from "@/components/AppButton/AppButton";
 import { useTranslation } from "react-i18next";
 export function LangaugeSwitcher() {
   const { t, i18n } = useTranslation();

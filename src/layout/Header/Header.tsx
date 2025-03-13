@@ -2,10 +2,11 @@ import { Container } from "@/components/Container/Container";
 import { FlexWrapper } from "@/components/FlexWrapper/FlexWrapper";
 import { Logo } from "@/components/Logo/Logo";
 import { Nav } from "@/components/Nav/Nav";
-
+import { Switchers } from "@/components/Switchers/Switchers";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import styled, { css } from "styled-components";
+
 export const HOME_ID = "home";
 export const SKILLS_ID = "skills";
 export const WORKS_ID = "works";
@@ -31,6 +32,8 @@ export default function Header() {
           justify="space-between"
         >
           <Logo />
+
+          <Switchers />
           <Nav
             isOpen={isOpen}
             setIsOpen={setIsOpen}
