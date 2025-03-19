@@ -78,8 +78,10 @@ const Item = styled.li`
 `;
 const Link = styled.a`
   padding: 10px 20px;
-  font-family: ${({ theme }) => theme.fonts.josefinsansMedium};
-  font-size: ${({ theme }) => theme.fonts.fontSizeXl24};
+  /* font-family: ${({ theme }) => theme.fonts.josefinsansMedium}; */
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 700;
+  font-size: ${({ theme }) => theme.fontSizeXl24};
   color: ${({ theme }) => theme.colors.primaryColor};
   transition: color linear ${({ theme }) => theme.delay.transitionDelay};
   &:hover {

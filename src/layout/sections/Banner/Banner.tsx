@@ -158,7 +158,9 @@ const SupTitle = styled.h4`
 
 const Name = styled.h2`
   font-size: ${({ theme }) => theme.fonts.fontSize6xl48};
-  font-family: ${({ theme }) => theme.fonts.josefinsansBold};
+  /* font-family: ${({ theme }) => theme.fonts.josefinsansBold}; */
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 700;
   letter-spacing: 5%;
   margin: 10px 0;
   span {

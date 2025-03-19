@@ -28,7 +28,9 @@ const Skill = styled.div`
   margin-bottom: 40px;
   span {
     margin-top: 30px;
-    font-family: ${({ theme }) => theme.fonts.josefinsansBold};
+    /* font-family: ${({ theme }) => theme.fonts.josefinsansBold}; */
+    font-family: "Josefin Sans", sans-serif;
+    font-weight: 700;
   }
   @media ${({ theme }) => theme.media.laptop} {
     width: calc(100% / 2);

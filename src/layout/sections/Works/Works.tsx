@@ -26,7 +26,7 @@ const works: WorkType[] = [
     img: sneakersImg,
     title: "sneakers store",
     text: "The sneaker store is one of the first projects at VUE",
-    demo: "https://github.com/Endle2sCoding/sneakers-store",
+    demo: "https://sneakers-store-kk25.vercel.app/",
     code: "https://github.com/Endle2sCoding/sneakers-store",
   },
   {

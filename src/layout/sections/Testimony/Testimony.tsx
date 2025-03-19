@@ -53,7 +53,9 @@ const ListItem = styled.div`
   }
 `;
 const Name = styled.span`
-  font-style: ${({ theme }) => theme.fonts.josefinsansSemibold};
+  /* font-style: ${({ theme }) => theme.fonts.josefinsansSemibold}; */
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 700;
 `;
 const Pagination = styled.div`
   margin-top: 35px;

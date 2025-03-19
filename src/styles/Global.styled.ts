@@ -47,7 +47,8 @@ body,
   min-height: 100vh;
   background: ${({ theme }) => theme.colors.bgPrimary};
   color: ${({ theme }) => theme.colors.primaryColor};
-  font-family: ${({ theme }) => theme.fonts.popinsMedium}, sans-serif;
+  /* font-family: ${({ theme }) => theme.fonts.popinsMedium}, sans-serif; */
+  font-family: "Poppins", sans-serif;
   font-size: ${({ theme }) => theme.fonts.fontSizeM16};
   line-height: 1.2;
   font-weight: 400;
