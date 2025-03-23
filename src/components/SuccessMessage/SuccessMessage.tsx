@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { useTranslation } from "react-i18next";
 import styled, { css } from "styled-components";
 
 export function SuccessMessage({
@@ -8,14 +9,15 @@ export function SuccessMessage({
   children?: ReactNode;
   loading: boolean;
 }) {
+  const { t } = useTranslation();
   return (
     <SuccessMessageStyled $loading={loading}>
       {children ? (
         <h3></h3>
       ) : (
         <>
-          <h3>{`Your message has been sent.`}</h3>
-          <h3>{`We will contact you shortly.`}</h3>
+          <h3>{t(`Your message has been sent.`)}</h3>
+          <h3>{t(`We will contact you shortly.`)}</h3>
         </>
       )}
     </SuccessMessageStyled>

@@ -30,10 +30,12 @@ export const WorksItem = ({ w }: { w: WorkType }) => {
         >
           {t(`view project`)}
         </AppLink>
-        <Img
-          src={w.img}
-          alt={w.title}
-        />
+        {w.img && (
+          <Img
+            src={w.img}
+            alt={w.title}
+          />
+        )}
       </ImgWrapper>
       <Info>
         <Title>{t(w.title)}</Title>
@@ -69,7 +71,10 @@ const ImgWrapper = styled.div`
   z-index: 0;
   width: 100%;
   max-height: 260px;
+  height: auto;
+  padding-top: 70%;
   cursor: pointer;
+  background: ${({ theme }) => theme.colors.bgNotAccented};
 
   transition: opacity linear ${({ theme }) => theme.delay.transitionDelay};
   &:before {
@@ -80,14 +85,16 @@ const ImgWrapper = styled.div`
     right: 0;
     left: 0;
     bottom: 0;
+    z-index: 2;
     backdrop-filter: blur(8px);
     background: rgba(0, 0, 0, 0.01);
 
     opacity: 0;
   }
   a {
-    transition: opacity linear ${({ theme }) => theme.delay.transitionDelay};
+    transition: all linear ${({ theme }) => theme.delay.transitionDelay};
     position: absolute;
+    z-index: 1;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -99,16 +106,20 @@ const ImgWrapper = styled.div`
       opacity: 1;
     }
     a {
-      transition: opacity linear ${({ theme }) => theme.delay.transitionDelay};
+      transition: all linear ${({ theme }) => theme.delay.transitionDelay};
       opacity: 1;
+      z-index: 3;
     }
   }
 `;
 
 const Img = styled.img`
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
   width: 100%;
-  max-height: 260px;
-  object-fit: cover;
+  height: 100%;
 `;
 
 const Links = styled.div`
@@ -125,5 +136,4 @@ const Title = styled.h4`
 const Text = styled.div`
   margin-bottom: 19px;
   word-wrap: break-word;
-  word-break: break-all;
 `;

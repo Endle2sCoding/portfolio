@@ -18,5 +18,5 @@ export default defineConfig({
       __IS__DEV__: true
     }
   },
-  //  base: "/portfolio"
+   base: "/portfolio"
 });

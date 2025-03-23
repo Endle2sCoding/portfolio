@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { Icon } from "../Icon/Icon";
-
 import { useEffect, useState } from "react";
 import { HOME_ID } from "@/layout/Header/Header";
 
@@ -18,7 +17,12 @@ export const ScrollTop = () => {
   return (
     <>
       {showBtn && (
-        <ScrollTopStyled href={`#${HOME_ID}`}>
+        <ScrollTopStyled
+          onClick={() => {
+            const element = document.getElementById(`${HOME_ID}`);
+            element?.scrollIntoView();
+          }}
+        >
           <Icon
             width="16px"
             height="16px"
@@ -31,7 +35,7 @@ export const ScrollTop = () => {
     </>
   );
 };
-const ScrollTopStyled = styled.a`
+const ScrollTopStyled = styled.button`
   background: none;
   border: none;
   position: fixed;

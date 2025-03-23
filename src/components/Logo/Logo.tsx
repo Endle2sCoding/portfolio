@@ -1,15 +1,18 @@
 import styled from "styled-components";
 import { Icon } from "../Icon/Icon";
-import { HOME_ID } from "@/layout/Header/Header";
+import { Link } from "react-router-dom";
 
 export const Logo = () => {
   return (
-    <StyledLogo href={`#${HOME_ID}`}>
+    <StyledLogo
+      to="/"
+      onClick={() => window.scroll(0, 0)}
+    >
       <Icon iconId="code" />
     </StyledLogo>
   );
 };
-const StyledLogo = styled.a`
+const StyledLogo = styled(Link)`
   text-decoration: none;
   transition: transform linear ${({ theme }) => theme.delay.transitionDelay};
   &:hover {

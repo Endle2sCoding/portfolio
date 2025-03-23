@@ -1,32 +1,34 @@
 import "./App.css";
-import Header from "@/layout/Header/Header";
-import { Banner } from "@/layout/sections/Banner/Banner";
-import { Skills } from "@/layout/sections/Skills/Skills";
-import { Works } from "@/layout/sections/Works/Works";
-import { Contacts } from "./layout/sections/Contacts/Contacts";
-import { Footer } from "./layout/Footer/Footer";
+
 import { GlobalStyles } from "./styles/Global.styled";
 import { ScrollTop } from "./components/ScrollTop/ScrollTop";
-import { Particle } from "./components/Particle/Particle";
 
 import { Suspense } from "react";
 import { ThemeProvider } from "./styles/ThemeContext";
 import { PageLoader } from "./widgets/PageLoader/PageLoader";
-
+import { MainPage } from "./pages/MainPage";
+import { Route, Routes } from "react-router-dom";
+import NotFounPage from "./pages/NotFounPage";
+import Header from "./layout/Header/Header";
 function App() {
   return (
     <div className="app">
       <Suspense fallback={<PageLoader />}>
         <ThemeProvider>
           <GlobalStyles />
-          <Particle />
           <Header />
-          <Banner />
-          <Skills />
-          <Works />
-          {/* <Testimony /> */}
-          <Contacts />
-          <Footer />
+          <Routes>
+            <Route
+              path="/"
+              element={<MainPage />}
+            />
+        
+            <Route
+              path="*"
+              element={<NotFounPage />}
+            />
+          </Routes>
+
           <ScrollTop />
         </ThemeProvider>
       </Suspense>

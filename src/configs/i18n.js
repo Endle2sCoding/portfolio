@@ -26,10 +26,10 @@ i18n
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default
     },
-  //   backend: {
-  //     loadPath: '/porfolio/locales/{{lng}}/translation.json'
-  //       //  loadPath: '/public/locales/{{lng}}/translation.json'
-  // }
+    backend: {
+      loadPath: '/portfolio/locales/{{lng}}/translation.json'
+      //  loadPath: '/public/locales/{{lng}}/translation.json'
+    }
   });
 
 

@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-
+import { AppButton } from "../AppButton/AppButton";
 export const Nav = ({
   className,
   isOpen,
@@ -22,7 +22,14 @@ export const Nav = ({
             onClick={() => setIsOpen(false)}
             key={l.title + i}
           >
-            <Link href={`#${l.id}`}>{l.title}</Link>
+            <AppButton
+              onClick={() => {
+                const element = document.getElementById(`${l.id}`);
+                element?.scrollIntoView();
+              }}
+            >
+              {l.title}
+            </AppButton>
           </Item>
         ))}
       </List>
@@ -57,6 +64,10 @@ const List = styled.ul<{ $isOpen: boolean }>`
   justify-content: space-between;
   align-content: center;
   text-transform: capitalize;
+  /* gap: 40px; */
+  button {
+    padding: 10px 20px;
+  }
   @media ${({ theme }) => theme.media.tablet} {
     width: 100%;
     height: 100%;
@@ -74,23 +85,5 @@ const Item = styled.li`
   }
   @media ${({ theme }) => theme.media.tablet} {
     width: 70%;
-  }
-`;
-const Link = styled.a`
-  padding: 10px 20px;
-  /* font-family: ${({ theme }) => theme.fonts.josefinsansMedium}; */
-  font-family: "Josefin Sans", sans-serif;
-  font-weight: 700;
-  font-size: ${({ theme }) => theme.fontSizeXl24};
-  color: ${({ theme }) => theme.colors.primaryColor};
-  transition: color linear ${({ theme }) => theme.delay.transitionDelay};
-  &:hover {
-    color: ${({ theme }) => theme.colors.accentedColor};
-  }
-  @media ${({ theme }) => theme.media.tablet} {
-    padding: 20px 40px;
-    display: flex;
-    align-content: center;
-    justify-content: center;
   }
 `;

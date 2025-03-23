@@ -12,6 +12,7 @@ const listIcon = [
     link: "https://t.me/EndlessCoding",
   },
   { iconId: "vk", link: "https://vk.com/id949021058" },
+  { iconId: "github", link: "https://github.com/Endle2sCoding" },
   // {
   //   iconId: "linkedin",
   //   link: "https://www.linkedin.com/in/viacheslav-ivanov-784337354/",
@@ -43,7 +44,9 @@ export const Footer = () => {
                     variant="bgCircle"
                     width="21"
                     height="21"
-                    viewBox="0 0 21 21"
+                    viewBox={
+                      item.iconId === "github" ? "0 0 35 35" : "0 0 21 21"
+                    }
                     iconId={item.iconId}
                   />
                 </AppLink>
